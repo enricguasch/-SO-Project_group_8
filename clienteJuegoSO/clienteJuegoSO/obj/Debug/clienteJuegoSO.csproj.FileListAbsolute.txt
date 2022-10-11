@@ -1,0 +1,10 @@
+C:\Users\UPC\Documents\SO\JuegoSO\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.exe.config
+C:\Users\UPC\Documents\SO\JuegoSO\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.exe
+C:\Users\UPC\Documents\SO\JuegoSO\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.pdb
+C:\Users\UPC\Documents\SO\JuegoSO\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.AssemblyReference.cache
+C:\Users\UPC\Documents\SO\JuegoSO\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Form1.resources
+C:\Users\UPC\Documents\SO\JuegoSO\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Properties.Resources.resources
+C:\Users\UPC\Documents\SO\JuegoSO\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.GenerateResource.cache
+C:\Users\UPC\Documents\SO\JuegoSO\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.CoreCompileInputs.cache
+C:\Users\UPC\Documents\SO\JuegoSO\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.exe
+C:\Users\UPC\Documents\SO\JuegoSO\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.pdb
