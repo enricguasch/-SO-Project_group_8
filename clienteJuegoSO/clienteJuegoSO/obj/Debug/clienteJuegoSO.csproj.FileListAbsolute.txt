@@ -8,3 +8,13 @@ C:\Users\UPC\Documents\SO\JuegoSO\clienteJuegoSO\clienteJuegoSO\obj\Debug\client
 C:\Users\UPC\Documents\SO\JuegoSO\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.CoreCompileInputs.cache
 C:\Users\UPC\Documents\SO\JuegoSO\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.exe
 C:\Users\UPC\Documents\SO\JuegoSO\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.pdb
+C:\3A\SO\IslaProhibida\-SO-Project_group_8\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.exe.config
+C:\3A\SO\IslaProhibida\-SO-Project_group_8\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.exe
+C:\3A\SO\IslaProhibida\-SO-Project_group_8\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.pdb
+C:\3A\SO\IslaProhibida\-SO-Project_group_8\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.AssemblyReference.cache
+C:\3A\SO\IslaProhibida\-SO-Project_group_8\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Form1.resources
+C:\3A\SO\IslaProhibida\-SO-Project_group_8\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Properties.Resources.resources
+C:\3A\SO\IslaProhibida\-SO-Project_group_8\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.GenerateResource.cache
+C:\3A\SO\IslaProhibida\-SO-Project_group_8\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.CoreCompileInputs.cache
+C:\3A\SO\IslaProhibida\-SO-Project_group_8\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.exe
+C:\3A\SO\IslaProhibida\-SO-Project_group_8\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.pdb
