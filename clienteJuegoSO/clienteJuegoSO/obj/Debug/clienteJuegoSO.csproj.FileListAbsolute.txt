@@ -18,3 +18,14 @@ C:\3A\SO\IslaProhibida\-SO-Project_group_8\clienteJuegoSO\clienteJuegoSO\obj\Deb
 C:\3A\SO\IslaProhibida\-SO-Project_group_8\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.CoreCompileInputs.cache
 C:\3A\SO\IslaProhibida\-SO-Project_group_8\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.exe
 C:\3A\SO\IslaProhibida\-SO-Project_group_8\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.pdb
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\ProjectSO\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.exe.config
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\ProjectSO\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.exe
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\ProjectSO\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.pdb
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\ProjectSO\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.AssemblyReference.cache
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\ProjectSO\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.SuggestedBindingRedirects.cache
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\ProjectSO\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Form1.resources
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\ProjectSO\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Properties.Resources.resources
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\ProjectSO\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.GenerateResource.cache
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\ProjectSO\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.CoreCompileInputs.cache
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\ProjectSO\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.exe
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\ProjectSO\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.pdb
