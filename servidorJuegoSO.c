@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
 	// Hacemos el bind al port
 	memset(&serv_adr, 0, sizeof(serv_adr));// inicialitza a zero serv_addr
 	serv_adr.sin_family = AF_INET;
-	// asocia el socket a cualquiera de las IP de la m?quina. 
+	// Asocia el socket a cualquiera de las IP de la m?quina. 
 	//htonl formatea el numero que recibe al formato necesario
 	serv_adr.sin_addr.s_addr = htonl(INADDR_ANY);
 	// escucharemos en el  ismo port que usa el cliente
@@ -335,7 +335,7 @@ void MejorJugador(char *p, int sock_conn)
 		exit(1);
 	}
 	
-	// Recollim el resultat que es una estructura
+	// Recollim el resultat que es una estructura.
 	un_jugadores = mysql_store_result (conn);
 	
 	// Agafa la primera fila de l'estructura anterior
