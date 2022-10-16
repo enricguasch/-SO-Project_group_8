@@ -39,7 +39,6 @@ namespace clienteJuegoSO
             this.username_txt = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.gmail_txt = new System.Windows.Forms.TextBox();
-            this.conectar_btn = new System.Windows.Forms.Button();
             this.desconectar_btn = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -145,17 +144,6 @@ namespace clienteJuegoSO
             this.gmail_txt.Name = "gmail_txt";
             this.gmail_txt.Size = new System.Drawing.Size(163, 26);
             this.gmail_txt.TabIndex = 17;
-            // 
-            // conectar_btn
-            // 
-            this.conectar_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.conectar_btn.Location = new System.Drawing.Point(12, 12);
-            this.conectar_btn.Name = "conectar_btn";
-            this.conectar_btn.Size = new System.Drawing.Size(160, 57);
-            this.conectar_btn.TabIndex = 18;
-            this.conectar_btn.Text = "Conectar";
-            this.conectar_btn.UseVisualStyleBackColor = true;
-            this.conectar_btn.Click += new System.EventHandler(this.conectar_btn_Click);
             // 
             // desconectar_btn
             // 
@@ -284,7 +272,6 @@ namespace clienteJuegoSO
             this.ClientSize = new System.Drawing.Size(972, 559);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.desconectar_btn);
-            this.Controls.Add(this.conectar_btn);
             this.Controls.Add(this.gmail_txt);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
@@ -317,7 +304,6 @@ namespace clienteJuegoSO
         private System.Windows.Forms.TextBox username_txt;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox gmail_txt;
-        private System.Windows.Forms.Button conectar_btn;
         private System.Windows.Forms.Button desconectar_btn;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label6;

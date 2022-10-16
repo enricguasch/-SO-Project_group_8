@@ -20,6 +20,29 @@ namespace clienteJuegoSO
             InitializeComponent();
         }
 
+        private Socket ConectaServidor(Socket server)
+        {
+            //Creamos un IPEndPoint con el ip del servidor y puerto del servidor 
+            //al que deseamos conectarnos
+            IPAddress direc = IPAddress.Parse("192.168.56.102");
+            IPEndPoint ipep = new IPEndPoint(direc, 9100);
+
+            //Creamos el socket 
+            server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            try
+            {
+                server.Connect(ipep);//Intentamos conectar el socket
+                this.BackColor = Color.Green;
+                return server;
+            }
+            catch (SocketException)
+            {
+                //Si hay excepcion imprimimos error y salimos del programa con return 
+                MessageBox.Show("No he podido conectar con el servidor");
+                return server;
+            }
+        }
+
         private string ConsultarServidor(string mensaje)
         {
             byte[] msg = System.Text.Encoding.ASCII.GetBytes(mensaje);
@@ -43,6 +66,7 @@ namespace clienteJuegoSO
             label7.Hide();
             request_btn.Hide();
             groupBox1.Hide();
+            desconectar_btn.Hide();
         }
         private void mostrarPantalla2()
         {
@@ -55,6 +79,7 @@ namespace clienteJuegoSO
             label7.Show();
             request_btn.Show();
             groupBox1.Show();
+            desconectar_btn.Show();
         }
         private void esconderPantalla1()
         {
@@ -70,27 +95,18 @@ namespace clienteJuegoSO
             label5.Hide();
         }
 
-        private void conectar_btn_Click(object sender, EventArgs e)
+        private void mostrarPantalla1()
         {
-            //Creamos un IPEndPoint con el ip del servidor y puerto del servidor 
-            //al que deseamos conectarnos
-            IPAddress direc = IPAddress.Parse("192.168.56.102");
-            IPEndPoint ipep = new IPEndPoint(direc, 9100);
-
-            //Creamos el socket 
-            server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
-            try
-            {
-                server.Connect(ipep);//Intentamos conectar el socket
-                this.BackColor = Color.Green;
-                MessageBox.Show("Conectado");
-            }
-            catch (SocketException)
-            {
-                //Si hay excepcion imprimimos error y salimos del programa con return 
-                MessageBox.Show("No he podido conectar con el servidor");
-                return;
-            }
+            login_btn.Show();
+            register_btn.Show();
+            username_txt.Show();
+            password_txt.Show();
+            gmail_txt.Show();
+            label1.Show();
+            label2.Show();
+            label3.Show();
+            label4.Show();
+            label5.Show();
         }
 
         private void login_btn_Click(object sender, EventArgs e)
@@ -179,6 +195,11 @@ namespace clienteJuegoSO
             this.BackColor = Color.Gray;
             server.Shutdown(SocketShutdown.Both);
             server.Close();
+            esconderPantalla2();
+            username_txt.Clear();
+            password_txt.Clear();
+            mostrarPantalla1();
+            server = ConectaServidor(server);
         }
 
         private void request_btn_Click(object sender, EventArgs e)
@@ -230,6 +251,7 @@ namespace clienteJuegoSO
         private void Form1_Load(object sender, EventArgs e)
         {
             esconderPantalla2();
+            server = ConectaServidor(server);
         }
 
     }
