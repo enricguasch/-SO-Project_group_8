@@ -6,81 +6,6 @@
 #include <netinet/in.h>
 #include <stdio.h>
 #include <mysql.h>
-
-int main(int argc, char *argv[])
-{	
-	//INICIALIZAR CONEXIÓN CON EL CLIENTE
-	int sock_conn, sock_listen, ret;
-	struct sockaddr_in serv_adr;
-	char peticion[512];
-	
-	// Abrimos el socket
-	if ((sock_listen = socket(AF_INET, SOCK_STREAM, 0)) < 0)
-		printf("Error creant socket");
-	// Hacemos el bind al port
-	memset(&serv_adr, 0, sizeof(serv_adr));// inicialitza a zero serv_addr
-	serv_adr.sin_family = AF_INET;
-	// Asocia el socket a cualquiera de las IP de la m?quina. 
-	//htonl formatea el numero que recibe al formato necesario
-	serv_adr.sin_addr.s_addr = htonl(INADDR_ANY);
-	// escucharemos en el  ismo port que usa el cliente
-	serv_adr.sin_port = htons(9100);
-	if (bind(sock_listen, (struct sockaddr *) &serv_adr, sizeof(serv_adr)) < 0)
-		printf ("Error al bind");
-	//La cola de peticiones pendientes no podr? ser superior a 4
-	if (listen(sock_listen, 4) < 0)
-		printf("Error en el Listen");
-	for(;;){
-		printf ("Escuchando\n");
-		
-		sock_conn = accept(sock_listen, NULL, NULL);
-		printf ("He recibido conexi?n\n");
-		//sock_conn es el socket que usaremos para este cliente
-		
-		//Bucle de atención al cliente
-		int terminar = 0;
-		while (terminar == 0)
-		{
-			// Ahora recibimos su peticion
-			ret=read(sock_conn,peticion, sizeof(peticion));
-			printf ("Recibida una petición\n");
-			// Tenemos que añadirle la marca de fin de string 
-			// para que no escriba lo que hay despues en el buffer
-			peticion[ret]='\0';
-			//Escribimos la peticion en la consola
-			printf ("La petición es: %s\n",peticion);
-			
-			//Interpretamos la petición
-			char *p = strtok(peticion, "/");
-			int codigo =  atoi (p);
-			
-			if (codigo == 0)
-				terminar = 1;
-			else if (codigo == 1)
-			{
-				LogIn(p,sock_conn);
-			}
-			else if (codigo == 2)
-			{
-				Registrar(p,sock_conn);
-			}
-			else if (codigo == 3) // consulta: Cuantas partidas ha ganado el jugador elegido?
-			{
-				PartidasGanadas(p,sock_conn);
-			}
-			else if (codigo == 4)
-				MejorJugador(p,sock_conn);
-			else //Nueva peticion: Decir si es alto o bajo
-			{
-				JugadoresEnPartida(p,sock_conn);
-			}
-		}
-		// Se acabo el servicio para este cliente
-		close(sock_conn); 
-	}
-	exit(0);
-}
-
 // FUNCIONES QUE REALIZAN CONSULTAS:
 
 void LogIn(char *p, int sock_conn)
@@ -99,7 +24,7 @@ void LogIn(char *p, int sock_conn)
 	char gmail[50];
 	
 	//Creo una conexion al servidor MYSQL 
-		conn = mysql_init(NULL);
+	conn = mysql_init(NULL);
 	if (conn==NULL) {
 		printf ("Error al crear la conexion: %u %s\n", 
 				mysql_errno(conn), mysql_error(conn));
@@ -125,19 +50,19 @@ void LogIn(char *p, int sock_conn)
 	//Tenemos el nombre y la contraseña, comprobamos si hay un usuario que coincida.
 	sprintf(consulta,"SELECT COUNT(jugadores.id) FROM (partidas,jugadores,registro) WHERE "
 			"jugadores.username='%s' AND jugadores.pword='%s';",nombre,pword);
-
+	
 	err=mysql_query (conn, consulta);
 	if (err!=0) {
 		printf ("Error al consultar datos de la base %u %s\n",
 				mysql_errno(conn), mysql_error(conn));
 		exit (1);
 	}
-
+	
 	//recojo el resultado de la consulta.
 	resultado = mysql_store_result (conn);
 	// El resultado es un numero en la primera fila
 	row = mysql_fetch_row (resultado);
-
+	
 	if (row == NULL)
 		strcpy(respuesta,"No se han obtenido datos en la consulta\n");
 	else
@@ -265,8 +190,8 @@ void PartidasGanadas(char *p, int sock_conn)
 	
 	// consulta: Cuantas partidas ha ganado el ususario?
 	sprintf(consulta,"SELECT COUNT(partidas.id) FROM (partidas,jugadores,registro) WHERE "
-		   "partidas.resultado='Victoria' AND jugadores.username='%s' AND "
-		   "jugadores.id=registro.id_j AND registro.id_p=partidas.id;",nombre);
+			"partidas.resultado='Victoria' AND jugadores.username='%s' AND "
+			"jugadores.id=registro.id_j AND registro.id_p=partidas.id;",nombre);
 	
 	err=mysql_query (conn, consulta);
 	if (err!=0) {
@@ -484,13 +409,96 @@ void JugadoresEnPartida(char *p,int sock_conn)
 		strcpy(respuesta,"No se han obtenido datos en la consulta\n");
 	else
 		sprintf(respuesta,"Jugadores de la partida %s:\n", num);
-		while (row !=NULL) {
-			sprintf (respuesta,"%s%s\n", respuesta, row[0]);
-			row = mysql_fetch_row (resultado);
-			i++;
-		}
+	while (row !=NULL) {
+		sprintf (respuesta,"%s%s\n", respuesta, row[0]);
+		row = mysql_fetch_row (resultado);
+		i++;
+	}
 	printf("Respuesta: %s\n", respuesta);
 	// Enviamos la respuesta
 	write (sock_conn,respuesta, strlen(respuesta));
 	mysql_close (conn);
 }
+
+
+int main(int argc, char *argv[])
+{	
+	//INICIALIZAR CONEXIÓN CON EL CLIENTE
+	int sock_conn, sock_listen, ret;
+	struct sockaddr_in serv_adr;
+	char peticion[512];
+	
+	// Abrimos el socket
+	if ((sock_listen = socket(AF_INET, SOCK_STREAM, 0)) < 0)
+		printf("Error creant socket");
+	// Hacemos el bind al port
+	memset(&serv_adr, 0, sizeof(serv_adr));// inicialitza a zero serv_addr
+	serv_adr.sin_family = AF_INET;
+	// Asocia el socket a cualquiera de las IP de la m?quina. 
+	//htonl formatea el numero que recibe al formato necesario
+	serv_adr.sin_addr.s_addr = htonl(INADDR_ANY);
+	// escucharemos en el  ismo port que usa el cliente
+	serv_adr.sin_port = htons(9010);
+	if (bind(sock_listen, (struct sockaddr *) &serv_adr, sizeof(serv_adr)) < 0)
+		printf ("Error al bind");
+	//La cola de peticiones pendientes no podr? ser superior a 4
+	if (listen(sock_listen, 4) < 0)
+		printf("Error en el Listen");
+	for(;;){
+		printf ("Escuchando\n");
+		
+		sock_conn = accept(sock_listen, NULL, NULL);
+		printf ("He recibido conexi?n\n");
+		//sock_conn es el socket que usaremos para este cliente
+		
+		//Bucle de atención al cliente
+		int terminar = 0;
+		while (terminar == 0)
+		{
+			
+			// Ahora recibimos su peticion
+			ret=read(sock_conn,peticion, sizeof(peticion));
+			printf ("Recibida una petición\n");
+			// Tenemos que añadirle la marca de fin de string 
+			// para que no escriba lo que hay despues en el buffer
+			peticion[ret]='\0';
+			//Escribimos la peticion en la consola
+			printf ("La petición es: %s\n",peticion);
+
+			if (strlen(peticion)!=0)
+			{
+				//Interpretamos la petición
+				char *p = strtok(peticion, "/");
+				int codigo =  atoi (p);
+				
+				if (codigo == 0)
+					terminar = 1;
+				else if (codigo == 1)
+				{
+					LogIn(p,sock_conn);
+				}
+				else if (codigo == 2)
+				{
+					Registrar(p,sock_conn);
+				}
+				else if (codigo == 3) // consulta: Cuantas partidas ha ganado el jugador elegido?
+				{
+					PartidasGanadas(p,sock_conn);
+				}
+				else if (codigo == 4)
+					MejorJugador(p,sock_conn);
+				else //Nueva peticion: Decir si es alto o bajo
+				{
+					JugadoresEnPartida(p,sock_conn);
+				}
+			}
+			else{
+				terminar = 1;
+			}
+		}
+		// Se acabo el servicio para este cliente
+		close(sock_conn); 
+	}
+	exit(0);
+}
+

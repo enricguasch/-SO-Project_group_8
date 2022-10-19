@@ -25,7 +25,7 @@ namespace clienteJuegoSO
             //Creamos un IPEndPoint con el ip del servidor y puerto del servidor 
             //al que deseamos conectarnos
             IPAddress direc = IPAddress.Parse("192.168.56.102");
-            IPEndPoint ipep = new IPEndPoint(direc, 9100);
+            IPEndPoint ipep = new IPEndPoint(direc, 9050);
 
             //Creamos el socket 
             server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
@@ -35,7 +35,7 @@ namespace clienteJuegoSO
                 this.BackColor = Color.Green;
                 return server;
             }
-            catch (SocketException)
+            catch(SocketException ex)
             {
                 //Si hay excepcion imprimimos error y salimos del programa con return 
                 MessageBox.Show("No he podido conectar con el servidor");
@@ -252,7 +252,21 @@ namespace clienteJuegoSO
         {
             esconderPantalla2();
             server = ConectaServidor(server);
+
         }
 
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            //Mensaje de desconexión
+            string mensaje = "0/";
+
+            byte[] msg = System.Text.Encoding.ASCII.GetBytes(mensaje);
+            server.Send(msg);
+
+            //Nos desconectamos
+            this.BackColor = Color.Gray;
+            server.Shutdown(SocketShutdown.Both);
+            server.Close();
+        }
     }
 }
