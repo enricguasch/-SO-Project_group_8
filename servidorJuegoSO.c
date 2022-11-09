@@ -25,89 +25,17 @@ typedef struct{
 //Inicializamos Lista de Conectados
 ListaConectados miLista;
 
-void *AtenderCliente (void *socket)
-{
-	int sock_conn;
-	int *s;
-	s = (int *) socket;
-	sock_conn=*s;
-	char peticion[512];
-	char respuesta[512];
-	int ret;
-	// Bucle de atencion al cliente
-	int terminar = 0;
-	while (terminar == 0)
-	{
-		// Ahora recibimos su peticion
-		ret=read(sock_conn,peticion, sizeof(peticion));
-		printf ("Recibida una petici￳n\n");
-		// Tenemos que a￱adirle la marca de fin de string 
-		// para que no escriba lo que hay despues en el buffer
-		peticion[ret]='\0';
-		//Escribimos la peticion en la consola
-		printf ("La petici￳n es: %s\n",peticion);
-		
-		//Interpretamos la petici￳n
-		char *p = strtok(peticion, "/");
-		int codigo =  atoi (p);
-		
-		char nombre[30];
-		if (codigo==1)
-		{
-			p=strtok(NULL,"/");
-			strcpy(nombre,p);
-		}
-		else if (codigo==2)
-		{
-			p=strtok(NULL,"/");
-			strcpy(nombre,p);
-		}
-		
-		
-		if (codigo == 0)
-		{
-			QuitarConectado(p,sock_conn,nombre);
-			terminar = 1;
-		}
-		else if (codigo == 1)
-		{
-			LogIn(p,nombre,sock_conn);
-		}
-		else if (codigo == 2)
-		{
-			Registrar(p,nombre,sock_conn);
-		}
-		else if (codigo == 3) // consulta: Cuantas partidas ha ganado el jugador elegido?
-		{
-			PartidasGanadas(p,sock_conn);
-		}
-		else if (codigo == 4)
-			MejorJugador(p,sock_conn);
-		else if (codigo==5)//Nueva peticion: Decir si es alto o bajo
-		{
-			JugadoresEnPartida(p,sock_conn);
-		}
-		else if (codigo==6) //Dame lista de conectados:
-		{
-			Conectados(sock_conn);
-		}
-	}
-	// Se acabo el servicio para este cliente
-	close(sock_conn); 
-}
-
-
-
-
 //Pasamos la lista por referencia y los par￡metros de cada conectado!!!
 int Pon(ListaConectados *lista, char nombre[20], int socket){
 	//A￱ade nuevo conectado, Retorna 0 si ok y -1 si no lo ha podido a￱adir.
 	if(lista->num==100)
 		return -1; //No podemos a￱adir un conectado
 	else{
+		pthread_mutex_lock(&mutex); // No me interrumpas ahora
 		strcpy(lista->conectados[lista->num].nombre,nombre);
 		lista->conectados[lista->num].socket = socket;
 		lista->num++;
+		pthread_mutex_unlock(&mutex); //Ya puedes interrumpirme
 		return 0;
 		
 	}
@@ -138,6 +66,7 @@ int Elimina(ListaConectados *lista, char nombre[20]){
 		return -1;
 	else{
 		int i;
+		pthread_mutex_lock(&mutex);
 		for(i=pos;i<lista->num-1;i++)	//Recorremos la lista a partir de la posicion que queremos eliminar y asignamos el siguiente elemento al anterior. Recorremos solo hasta num-1!!!
 		{
 			//lista->conectados[i] = lista->conectados[i+1];
@@ -145,6 +74,7 @@ int Elimina(ListaConectados *lista, char nombre[20]){
 			lista->conectados[i].socket = lista->conectados[i+1].socket;	
 		}
 		lista->num--;	//Actualizamos el numero de elementos de la lista!!
+		pthread_mutex_unlock(&mutex);
 		return 0;
 	}
 }
@@ -251,12 +181,7 @@ void Conectados(int sock_conn){
 	//Enviamos la respuesta
 	write(sock_conn,respuesta,strlen(respuesta));
 }
-void QuitarConectado(char *p, int sock_conn, char nombre[30])
-{
-	pthread_mutex_lock(&mutex); // No me interrumpas ahora
-	Elimina(&miLista,nombre);
-	pthread_mutex_unlock(&mutex); //Ya puedes interrumpirme
-}
+
 
 void LogIn(char *p, char nombre[30], int sock_conn)
 	//Busca en la base de datos el usuario y contrase￱a para comprobar si 
@@ -291,9 +216,7 @@ void LogIn(char *p, char nombre[30], int sock_conn)
 	
 	// Ya tenemos el nombre
 	// A￱adimos Usuario a la lista:
-	pthread_mutex_lock(&mutex); // No me interrumpas ahora
 	Pon(&miLista,nombre,sock_conn);
-	pthread_mutex_unlock(&mutex); //Ya puedes interrumpirme
 	
 	p = strtok( NULL, "/");
 	strcpy(pword, p);
@@ -362,9 +285,7 @@ void Registrar(char *p, char nombre[30], int sock_conn)
 	}
 	
 	// A￱adimos Usuario a la lista:
-	pthread_mutex_lock(&mutex); // No me interrumpas ahora
 	Pon(&miLista,nombre,sock_conn);
-	pthread_mutex_unlock(&mutex); //Ya puedes interrumpirme
 	
 	p = strtok( NULL, "/");
 	strcpy(pword, p);
@@ -484,8 +405,7 @@ void MejorJugador(char *p, int sock_conn)
 	
 	char respuesta[512];
 	char nombre[20];
-	
-	
+
 	//Creo una conexion al servidor MYSQL 
 	conn = mysql_init(NULL);
 	if (conn==NULL) {
@@ -519,6 +439,7 @@ void MejorJugador(char *p, int sock_conn)
 	row_un_j = mysql_fetch_row (un_jugadores);
 	
 	char resultado[500];	// Declarem aquest char per emmagatzemar el resultat i despres poder llegir-lo.
+	strcpy(resultado,"");
 	
 	if (row_un_j == NULL)
 		printf ("No se han obtenido datos en la consulta\n");	// Seguretat per si la consulta no es fa be
@@ -590,7 +511,9 @@ void MejorJugador(char *p, int sock_conn)
 			}
 			p1 = strtok(NULL, "/");	
 		}
+
 		strcpy(respuesta, "Mejores jugadores:\n\n");
+	
 		p2 = strtok(resultado,"/");
 		while (p2!=NULL)
 		{
@@ -670,6 +593,79 @@ void JugadoresEnPartida(char *p,int sock_conn)
 	// Enviamos la respuesta
 	write (sock_conn,respuesta, strlen(respuesta));
 	mysql_close (conn);
+}
+
+void *AtenderCliente (void *socket)
+{
+	int sock_conn;
+	int *s;
+	s = (int *) socket;
+	sock_conn=*s;
+	char peticion[512];
+	char respuesta[512];
+	int ret;
+	// Bucle de atencion al cliente
+	int terminar = 0;
+	while (terminar == 0)
+	{
+		// Ahora recibimos su peticion
+		ret=read(sock_conn,peticion, sizeof(peticion));
+		printf ("Recibida una petici￳n\n");
+		// Tenemos que a￱adirle la marca de fin de string 
+		// para que no escriba lo que hay despues en el buffer
+		peticion[ret]='\0';
+		//Escribimos la peticion en la consola
+		printf ("La petici￳n es: %s\n",peticion);
+		
+		//Interpretamos la petici￳n
+		char *p = strtok(peticion, "/");
+		int codigo =  atoi (p);
+		
+		char nombre[30];
+		if (codigo==1)
+		{
+			p=strtok(NULL,"/");
+			strcpy(nombre,p);
+		}
+		else if (codigo==2)
+		{
+			p=strtok(NULL,"/");
+			strcpy(nombre,p);
+		}
+		
+		
+		if (codigo == 0)
+		{
+			Elimina(&miLista,nombre);			
+			terminar = 1;
+		}
+		else if (codigo == 1)
+		{
+			LogIn(p,nombre,sock_conn);
+		}
+		else if (codigo == 2)
+		{
+			Registrar(p,nombre,sock_conn);
+		}
+		else if (codigo == 3) // consulta: Cuantas partidas ha ganado el jugador elegido?
+		{
+			PartidasGanadas(p,sock_conn);
+		}
+		else if (codigo == 4)
+		{
+			MejorJugador(p,sock_conn);
+		}
+		else if (codigo==5)//Nueva peticion: Decir si es alto o bajo
+		{
+			JugadoresEnPartida(p,sock_conn);
+		}
+		else if (codigo==6) //Dame lista de conectados:
+		{
+			Conectados(sock_conn);
+		}
+	}
+	// Se acabo el servicio para este cliente
+	close(sock_conn); 
 }
 
 int main(int argc, char *argv[])

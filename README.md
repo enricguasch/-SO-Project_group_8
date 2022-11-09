@@ -8,4 +8,4 @@ URL: https://drive.google.com/drive/folders/1Dlfo1x5OHSxtA4zrer1iWDz3R9tjY7dH?us
 
 
 Versión 2 generada por Gerard López  
-
+Versión 2 verificada por Enric Guasch
