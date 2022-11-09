@@ -25,7 +25,7 @@ namespace clienteJuegoSO
             //Creamos un IPEndPoint con el ip del servidor y puerto del servidor 
             //al que deseamos conectarnos
             IPAddress direc = IPAddress.Parse("192.168.56.102");
-            IPEndPoint ipep = new IPEndPoint(direc, 9050);
+            IPEndPoint ipep = new IPEndPoint(direc, 9220);
 
             //Creamos el socket 
             server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
@@ -67,6 +67,7 @@ namespace clienteJuegoSO
             request_btn.Hide();
             groupBox1.Hide();
             desconectar_btn.Hide();
+            Conectados.Hide();
         }
         private void mostrarPantalla2()
         {
@@ -80,6 +81,8 @@ namespace clienteJuegoSO
             request_btn.Show();
             groupBox1.Show();
             desconectar_btn.Show();
+            Conectados.Show();
+            ConectadosGrid.Hide();
         }
         private void esconderPantalla1()
         {
@@ -246,10 +249,43 @@ namespace clienteJuegoSO
                     MessageBox.Show(respuesta);
                 }
             }
+            if(Conectados.Checked)
+            {
+                ConectadosGrid.Show();
+                ConectadosGrid.Rows.Clear();
+                ConectadosGrid.Columns.Clear();
+                ConectadosGrid.ColumnCount = 2;
+                ConectadosGrid.RowCount = 10;
+
+                // Quiere saber los jugadores de la partida
+                string mensaje = "6/";
+
+                // Enviamos al servidor el numero de partida
+                string respuesta = ConsultarServidor(mensaje);
+                string[] respuestaTokens = respuesta.Split(new char[1] { '/' });
+                int n = Convert.ToInt32(respuestaTokens[0]);
+                int j = 0;
+                int i = 1;
+                while(i<=n)
+                {
+                    ConectadosGrid.Rows[j].Cells[0].Value = respuestaTokens[i];
+                    i = i + 1;
+                    j = j + 1;
+                }
+                j = 0;
+                while(i<=(2*n))
+                {
+                    ConectadosGrid.Rows[j].Cells[1].Value = respuestaTokens[i];
+                    i = i + 1;
+                    j = j + 1;
+                }
+
+            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            
             esconderPantalla2();
             server = ConectaServidor(server);
 
@@ -267,6 +303,11 @@ namespace clienteJuegoSO
             this.BackColor = Color.Gray;
             server.Shutdown(SocketShutdown.Both);
             server.Close();
+        }
+
+        private void uiTest_btn_Click(object sender, EventArgs e)
+        {
+            new Form2().ShowDialog();
         }
     }
 }
