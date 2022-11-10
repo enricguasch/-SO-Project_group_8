@@ -143,6 +143,12 @@ namespace clienteJuegoSO
                     username_txt.Clear();
                     password_txt.Clear();
                 }
+                else if (Convert.ToInt32(respuesta) == 2)
+                {
+                    MessageBox.Show("Usuario ya conectado.");
+                    username_txt.Clear();
+                    password_txt.Clear();
+                }
                 else
                 {
                     MessageBox.Show("Error al consultar la base de datos.");
@@ -174,6 +180,12 @@ namespace clienteJuegoSO
                     MessageBox.Show("Gracias por registrarte " + username_txt.Text);
                     esconderPantalla1();
                     mostrarPantalla2();
+                }
+                else if (Convert.ToInt32(respuesta) == 2)
+                {
+                    MessageBox.Show("Usuario ya conectado.");
+                    username_txt.Clear();
+                    password_txt.Clear();
                 }
                 //Si no lo son le pedimos que lo vuelva a intentar
                 else
@@ -251,11 +263,6 @@ namespace clienteJuegoSO
             }
             if(Conectados.Checked)
             {
-                ConectadosGrid.Show();
-                ConectadosGrid.Rows.Clear();
-                ConectadosGrid.Columns.Clear();
-                ConectadosGrid.ColumnCount = 2;
-                ConectadosGrid.RowCount = 10;
 
                 // Quiere saber los jugadores de la partida
                 string mensaje = "6/";
@@ -264,6 +271,15 @@ namespace clienteJuegoSO
                 string respuesta = ConsultarServidor(mensaje);
                 string[] respuestaTokens = respuesta.Split(new char[1] { '/' });
                 int n = Convert.ToInt32(respuestaTokens[0]);
+
+                ConectadosGrid.Show();
+                ConectadosGrid.Rows.Clear();
+                ConectadosGrid.Columns.Clear();
+                ConectadosGrid.ColumnCount = 2;
+                ConectadosGrid.RowCount = n;
+                ConectadosGrid.Columns[0].HeaderText = "Jugador";
+                ConectadosGrid.Columns[1].HeaderText = "Socket";
+
                 int j = 0;
                 int i = 1;
                 while(i<=n)

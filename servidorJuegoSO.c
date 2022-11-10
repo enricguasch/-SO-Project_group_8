@@ -25,11 +25,11 @@ typedef struct{
 //Inicializamos Lista de Conectados
 ListaConectados miLista;
 
-//Pasamos la lista por referencia y los par￡metros de cada conectado!!!
+//Pasamos la lista por referencia y los par￯﾿ﾡmetros de cada conectado!!!
 int Pon(ListaConectados *lista, char nombre[20], int socket){
-	//A￱ade nuevo conectado, Retorna 0 si ok y -1 si no lo ha podido a￱adir.
+	//A￯﾿ﾱade nuevo conectado, Retorna 0 si ok y -1 si no lo ha podido a￯﾿ﾱadir.
 	if(lista->num==100)
-		return -1; //No podemos a￱adir un conectado
+		return -1; //No podemos a￯﾿ﾱadir un conectado
 	else{
 		pthread_mutex_lock(&mutex); // No me interrumpas ahora
 		strcpy(lista->conectados[lista->num].nombre,nombre);
@@ -184,7 +184,7 @@ void Conectados(int sock_conn){
 
 
 void LogIn(char *p, char nombre[30], int sock_conn)
-	//Busca en la base de datos el usuario y contrase￱a para comprobar si 
+	//Busca en la base de datos el usuario y contrase￯﾿ﾱa para comprobar si 
 	//el usuario existe.
 {
 
@@ -214,39 +214,51 @@ void LogIn(char *p, char nombre[30], int sock_conn)
 		exit (1);
 	}
 	
-	// Ya tenemos el nombre
-	// A￱adimos Usuario a la lista:
-	Pon(&miLista,nombre,sock_conn);
-	
-	p = strtok( NULL, "/");
-	strcpy(pword, p);
-	
-	//Tenemos el nombre y la contrase￱a, comprobamos si hay un usuario que coincida.
-	sprintf(consulta,"SELECT COUNT(jugadores.id) FROM (partidas,jugadores,registro) WHERE "
-			"jugadores.username='%s' AND jugadores.pword='%s';",nombre,pword);
-	
-	err=mysql_query (conn, consulta);
-	if (err!=0) {
-		printf ("Error al consultar datos de la base %u %s\n",
-				mysql_errno(conn), mysql_error(conn));
-		exit (1);
+	int usuario_conectado = 0;
+	int i = 0;
+	while (i<miLista.num){
+		if (strcmp(miLista.conectados[i].nombre, nombre)==0)
+			usuario_conectado=1;
+		i++;
 	}
-	
-	//recojo el resultado de la consulta.
-	resultado = mysql_store_result (conn);
-	// El resultado es un numero en la primera fila
-	row = mysql_fetch_row (resultado);
-	
-	if (row == NULL)
-		strcpy(respuesta,"No se han obtenido datos en la consulta\n");
-	else
+	if (usuario_conectado==0)
 	{
-		if (atoi(row[0])==0)
-			strcpy(respuesta,"1");
+		// Ya tenemos el nombre
+		// A￱adimos Usuario a la lista:
+		Pon(&miLista,nombre,sock_conn);
+		
+		p = strtok( NULL, "/");
+		strcpy(pword, p);
+		
+		//Tenemos el nombre y la contrase￱a, comprobamos si hay un usuario que coincida.
+		sprintf(consulta,"SELECT COUNT(jugadores.id) FROM (partidas,jugadores,registro) WHERE "
+				"jugadores.username='%s' AND jugadores.pword='%s';",nombre,pword);
+		
+		err=mysql_query (conn, consulta);
+		if (err!=0) {
+			printf ("Error al consultar datos de la base %u %s\n",
+					mysql_errno(conn), mysql_error(conn));
+			exit (1);
+		}
+		
+		//recojo el resultado de la consulta.
+		resultado = mysql_store_result (conn);
+		// El resultado es un numero en la primera fila
+		row = mysql_fetch_row (resultado);
+		
+		if (row == NULL)
+			strcpy(respuesta,"No se han obtenido datos en la consulta\n");
 		else
-			strcpy(respuesta,"0");
+		{
+			if (atoi(row[0])==0)
+				strcpy(respuesta,"1");
+			else
+				strcpy(respuesta,"0");
+		}
 	}
-	
+	else{
+		strcpy(respuesta, "2");
+	}
 	printf("Respuesta: %s\n", respuesta);
 	// Enviamos la respuesta
 	write (sock_conn,respuesta, strlen(respuesta));
@@ -284,44 +296,58 @@ void Registrar(char *p, char nombre[30], int sock_conn)
 		exit (1);
 	}
 	
-	// A￱adimos Usuario a la lista:
-	Pon(&miLista,nombre,sock_conn);
-	
-	p = strtok( NULL, "/");
-	strcpy(pword, p);
-	
-	p = strtok( NULL, "/");
-	strcpy(gmail, p);
-	
-	sprintf(consulta,"SELECT COUNT(jugadores.id) FROM (jugadores);");
-	
-	err=mysql_query (conn, consulta);
-	if (err!=0) {
-		printf ("Error al consultar datos de la base %u %s\n",
-				mysql_errno(conn), mysql_error(conn));
-		exit (1);
+	int usuario_conectado = 0;
+	int i = 0;
+	while (i<miLista.num){
+		if (strcmp(miLista.conectados[i].nombre, nombre)==0)
+			usuario_conectado=1;
+		i++;
 	}
-	
-	//recojo el resultado de la consulta.
-	resultado = mysql_store_result (conn);
-	// El resultado es un numero en la primera fila
-	row = mysql_fetch_row (resultado);
-	
-	id = atoi(row[0]) + 1;
-	
-	
-	//Tenemos el nombre y la contrase￱a, comprobamos si hay un usuario que coincida.
-	sprintf(consulta,"INSERT INTO jugadores (id,username,pword,mail) VALUES (%d,'%s','%s','%s');",id,nombre,pword,gmail);
-	
-	err=mysql_query (conn, consulta);
-	if (err!=0) {
-		printf ("Error al consultar datos de la base %u %s\n",
-				mysql_errno(conn), mysql_error(conn));
-		strcpy(respuesta,"1");
-		exit (1);
+	if (usuario_conectado==0)
+	{
+		// A￱adimos Usuario a la lista:
+		Pon(&miLista,nombre,sock_conn);
+		
+		p = strtok( NULL, "/");
+		strcpy(pword, p);
+		
+		p = strtok( NULL, "/");
+		strcpy(gmail, p);
+		
+		sprintf(consulta,"SELECT COUNT(jugadores.id) FROM (jugadores);");
+		
+		err=mysql_query (conn, consulta);
+		if (err!=0) {
+			printf ("Error al consultar datos de la base %u %s\n",
+					mysql_errno(conn), mysql_error(conn));
+			exit (1);
+		}
+		
+		//recojo el resultado de la consulta.
+		resultado = mysql_store_result (conn);
+		// El resultado es un numero en la primera fila
+		row = mysql_fetch_row (resultado);
+		
+		id = atoi(row[0]) + 1;
+		
+		
+		//Tenemos el nombre y la contrase￱a, comprobamos si hay un usuario que coincida.
+		sprintf(consulta,"INSERT INTO jugadores (id,username,pword,mail) VALUES (%d,'%s','%s','%s');",id,nombre,pword,gmail);
+		
+		err=mysql_query (conn, consulta);
+		if (err!=0) {
+			printf ("Error al consultar datos de la base %u %s\n",
+					mysql_errno(conn), mysql_error(conn));
+			strcpy(respuesta,"1");
+			exit (1);
+		}
+		else
+			strcpy(respuesta,"0");	
 	}
 	else
-		strcpy(respuesta,"0");	
+	{
+		strcpy(respuesta, "2");
+	}
 	
 	printf("Respuesta: %s\n", respuesta);
 	// Enviamos la respuesta
@@ -610,14 +636,14 @@ void *AtenderCliente (void *socket)
 	{
 		// Ahora recibimos su peticion
 		ret=read(sock_conn,peticion, sizeof(peticion));
-		printf ("Recibida una petici￳n\n");
-		// Tenemos que a￱adirle la marca de fin de string 
+		printf ("Recibida una petici￯﾿ﾳn\n");
+		// Tenemos que a￯﾿ﾱadirle la marca de fin de string 
 		// para que no escriba lo que hay despues en el buffer
 		peticion[ret]='\0';
 		//Escribimos la peticion en la consola
-		printf ("La petici￳n es: %s\n",peticion);
+		printf ("La petici￯﾿ﾳn es: %s\n",peticion);
 		
-		//Interpretamos la petici￳n
+		//Interpretamos la petici￯﾿ﾳn
 		char *p = strtok(peticion, "/");
 		int codigo =  atoi (p);
 		
@@ -671,7 +697,7 @@ void *AtenderCliente (void *socket)
 int main(int argc, char *argv[])
 {	
 	miLista.num=0;
-	//INICIALIZAR CONEXIￓN CON EL CLIENTE
+	//INICIALIZAR CONEXI￯﾿ﾓN CON EL CLIENTE
 	int sock_conn, sock_listen, ret;
 	struct sockaddr_in serv_adr;
 	
@@ -703,9 +729,8 @@ int main(int argc, char *argv[])
 		sockets[i] = sock_conn;
 		//sock_conn es el socket que usaremos para este cliente
 		// Crear thred y decirle que tiene que hacer:
-		pthread_create (&thread, NULL, AtenderCliente ,&sockets[i]);	//No podem fer que els vectors siguin infinits i arriba un moment que no podem col￯ﾾﾷlocar els sockets a la posicio que tocaria
+		pthread_create (&thread, NULL, AtenderCliente ,&sockets[i]);	//No podem fer que els vectors siguin infinits i arriba un moment que no podem col￯﾿ﾯ￯ﾾﾾ￯ﾾﾷlocar els sockets a la posicio que tocaria
 		i = i+1;
 	}
 	exit(0);
 }
-

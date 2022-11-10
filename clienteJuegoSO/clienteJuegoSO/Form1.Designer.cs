@@ -196,7 +196,6 @@ namespace clienteJuegoSO
             // ConectadosGrid
             // 
             this.ConectadosGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ConectadosGrid.ColumnHeadersVisible = false;
             this.ConectadosGrid.Location = new System.Drawing.Point(545, 318);
             this.ConectadosGrid.Name = "ConectadosGrid";
             this.ConectadosGrid.RowHeadersVisible = false;
