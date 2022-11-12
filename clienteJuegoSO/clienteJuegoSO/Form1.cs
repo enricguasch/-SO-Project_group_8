@@ -9,15 +9,142 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net;
 using System.Net.Sockets;
+using System.Threading;
 
 namespace clienteJuegoSO
 {
     public partial class Form1 : Form
     {
         Socket server;
+        Thread atender;
         public Form1()
         {
             InitializeComponent();
+            CheckForIllegalCrossThreadCalls = false; //Necesario para que los elementos de los formularios puedan ser
+            //accedidos desde threads diferentes a los que los crearon (ARREGLO TEMPORAL)
+        }
+
+        private void AtenderServidor()
+        {
+            while (true)
+            {
+                string [] trozos = RespuestaServidor();
+                int codigo = Convert.ToInt32(trozos[0]);
+                string respuesta = trozos[1].Split('\0')[0];
+                MessageBox.Show(respuesta);
+
+                switch (codigo)
+                {
+                    case 0:
+                        if (Convert.ToInt32(respuesta)==0)
+                        {
+                            //Nos desconectamos
+                            this.BackColor = Color.Gray;
+                            server.Shutdown(SocketShutdown.Both);
+                            server.Close();
+                            esconderPantalla2();
+                            username_txt.Clear();
+                            password_txt.Clear();
+                            gmail_txt.Clear();
+                            mostrarPantalla1();
+                            server = ConectaServidor(server);
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se ha podido realizar la desconexión.");
+                        }
+                        break;
+                    case 1:  // respuesta a LogIN
+                        //Si el usuario existe y la contraseña es correcta lo dejamos entrar al juego
+                        if (Convert.ToInt32(respuesta) == 0)
+                        {
+                            MessageBox.Show("Bienvenido de nuevo " + username_txt.Text);
+                            esconderPantalla1();
+                            mostrarPantalla2();
+                        }
+                        //Si no lo son le pedimos que lo vuelva a intentar
+                        else if (Convert.ToInt32(respuesta) == 1)
+                        {
+                            MessageBox.Show("Usuario o contraseña equivocados.");
+                            username_txt.Clear();
+                            password_txt.Clear();
+                        }
+                        else if (Convert.ToInt32(respuesta) == 2)
+                        {
+                            MessageBox.Show("Usuario ya conectado.");
+                            username_txt.Clear();
+                            password_txt.Clear();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Error al consultar la base de datos.");
+                        }
+                        break;
+                    case 2:      //respuesta a si mi nombre es bonito
+                                 //Si el usuario se ha creado correctamente le dejamos entrar al juego
+                        if (Convert.ToInt32(respuesta) == 0)
+                        {
+                            MessageBox.Show("Gracias por registrarte " + username_txt.Text);
+                            esconderPantalla1();
+                            mostrarPantalla2();
+                        }
+                        else if (Convert.ToInt32(respuesta) == 2)
+                        {
+                            MessageBox.Show("Usuario ya conectado.");
+                            username_txt.Clear();
+                            password_txt.Clear();
+                            gmail_txt.Clear();
+                        }
+                        //Si no lo son le pedimos que lo vuelva a intentar
+                        else
+                        {
+                            MessageBox.Show("Error en el proceso de registro.");
+                            username_txt.Clear();
+                            password_txt.Clear();
+                            gmail_txt.Clear();
+                        }
+                        break;
+                    case 3:       //Recibimos la respuesta de partidas ganadas
+
+                        MessageBox.Show(respuesta);
+                        break;
+                    case 4:     //Recibimos la respuesta de mejor jugador
+
+                        MessageBox.Show(respuesta);
+                        break;
+                    case 5:     //Recibimos la respuesta de jugadores en partida
+                        MessageBox.Show(respuesta);
+                        break;
+                    case 6:
+                        string[] respuestaTokens = respuesta.Split(new char[1] { '/' });
+                        int n = Convert.ToInt32(respuestaTokens[0]);
+
+                        ConectadosGrid.Show();
+                        ConectadosGrid.Rows.Clear();
+                        ConectadosGrid.Columns.Clear();
+                        ConectadosGrid.ColumnCount = 2;
+                        ConectadosGrid.RowCount = n;
+                        ConectadosGrid.Columns[0].HeaderText = "Jugador";
+                        ConectadosGrid.Columns[1].HeaderText = "Socket";
+
+                        int j = 0;
+                        int i = 1;
+                        while (i <= n)
+                        {
+                            ConectadosGrid.Rows[j].Cells[0].Value = respuestaTokens[i];
+                            i = i + 1;
+                            j = j + 1;
+                        }
+                        j = 0;
+                        while (i <= (2 * n))
+                        {
+                            ConectadosGrid.Rows[j].Cells[1].Value = respuestaTokens[i];
+                            i = i + 1;
+                            j = j + 1;
+                        }
+                        break;
+                }
+            }
         }
 
         private Socket ConectaServidor(Socket server)
@@ -25,7 +152,7 @@ namespace clienteJuegoSO
             //Creamos un IPEndPoint con el ip del servidor y puerto del servidor 
             //al que deseamos conectarnos
             IPAddress direc = IPAddress.Parse("192.168.56.102");
-            IPEndPoint ipep = new IPEndPoint(direc, 9220);
+            IPEndPoint ipep = new IPEndPoint(direc, 9200);
 
             //Creamos el socket 
             server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
@@ -33,6 +160,10 @@ namespace clienteJuegoSO
             {
                 server.Connect(ipep);//Intentamos conectar el socket
                 this.BackColor = Color.Green;
+                //pongo en marcha el thread que atenderá los mensajes del servidor
+                ThreadStart ts = delegate { AtenderServidor(); };
+                atender = new Thread(ts);
+                atender.Start();
                 return server;
             }
             catch(SocketException ex)
@@ -43,16 +174,19 @@ namespace clienteJuegoSO
             }
         }
 
-        private string ConsultarServidor(string mensaje)
+        private void ConsultarServidor(string mensaje)
         {
             byte[] msg = System.Text.Encoding.ASCII.GetBytes(mensaje);
             server.Send(msg);
+        }
 
-            //Recibimos la respuesta del servidor
+        private string[] RespuestaServidor()
+        {
+            //Recibimos mensaje del servidor
             byte[] msg2 = new byte[80];
             server.Receive(msg2);
-            mensaje = Encoding.ASCII.GetString(msg2).Split('\0')[0];
-            return mensaje;
+            string[] trozos = Encoding.ASCII.GetString(msg2).Split('*');
+            return trozos;
         }
 
         private void esconderPantalla2()
@@ -127,32 +261,7 @@ namespace clienteJuegoSO
                 string mensaje = "1/" + username_txt.Text.ToLower() + "/" + password_txt.Text;
 
                 // Enviamos al servidor el usuario y contraseña tecleados
-                string respuesta = ConsultarServidor(mensaje)
-                    ;
-                //Si el usuario existe y la contraseña es correcta lo dejamos entrar al juego
-                if (Convert.ToInt32(respuesta) == 0)
-                {
-                    MessageBox.Show("Bienvenido de nuevo " + username_txt.Text);
-                    esconderPantalla1();
-                    mostrarPantalla2();
-                }
-                //Si no lo son le pedimos que lo vuelva a intentar
-                else if (Convert.ToInt32(respuesta) == 1)
-                {
-                    MessageBox.Show("Usuario o contraseña equivocados.");
-                    username_txt.Clear();
-                    password_txt.Clear();
-                }
-                else if (Convert.ToInt32(respuesta) == 2)
-                {
-                    MessageBox.Show("Usuario ya conectado.");
-                    username_txt.Clear();
-                    password_txt.Clear();
-                }
-                else
-                {
-                    MessageBox.Show("Error al consultar la base de datos.");
-                }
+                ConsultarServidor(mensaje);
             }
         }
 
@@ -172,29 +281,9 @@ namespace clienteJuegoSO
                 string mensaje = "2/" + username_txt.Text.ToLower() + "/" + password_txt.Text + "/" + gmail_txt.Text.ToLower();
 
                 // Enviamos al servidor el usuario y contraseña tecleados
-                string respuesta = ConsultarServidor(mensaje);
+                ConsultarServidor(mensaje);
 
-                //Si el usuario se ha creado correctamente le dejamos entrar al juego
-                if (Convert.ToInt32(respuesta) == 0)
-                {
-                    MessageBox.Show("Gracias por registrarte " + username_txt.Text);
-                    esconderPantalla1();
-                    mostrarPantalla2();
-                }
-                else if (Convert.ToInt32(respuesta) == 2)
-                {
-                    MessageBox.Show("Usuario ya conectado.");
-                    username_txt.Clear();
-                    password_txt.Clear();
-                }
-                //Si no lo son le pedimos que lo vuelva a intentar
-                else
-                {
-                    MessageBox.Show("Error en el proceso de registro.");
-                    username_txt.Clear();
-                    password_txt.Clear();
-                    gmail_txt.Clear();
-                }
+                
             }
         }
 
@@ -202,19 +291,7 @@ namespace clienteJuegoSO
         {
             //Mensaje de desconexión
             string mensaje = "0/";
-
-            byte[] msg = System.Text.Encoding.ASCII.GetBytes(mensaje);
-            server.Send(msg);
-
-            //Nos desconectamos
-            this.BackColor = Color.Gray;
-            server.Shutdown(SocketShutdown.Both);
-            server.Close();
-            esconderPantalla2();
-            username_txt.Clear();
-            password_txt.Clear();
-            mostrarPantalla1();
-            server = ConectaServidor(server);
+            ConsultarServidor(mensaje);
         }
 
         private void request_btn_Click(object sender, EventArgs e)
@@ -229,20 +306,15 @@ namespace clienteJuegoSO
                 {
                     // Quiere saber cuantas partidas ha ganado el jugador
                     string mensaje = "3/" + nombre_txt.Text.ToLower();
-
                     // Enviamos al servidor el nombre tecleado
-                    string respuesta = ConsultarServidor(mensaje);
-                    MessageBox.Show(respuesta);
+                    ConsultarServidor(mensaje);
                 }
             }
             if (Mejor.Checked)
             {
                 // Quiere saber el mejor jugador
                 string mensaje = "4/";
-            
-                string respuesta = ConsultarServidor(mensaje);
-
-                MessageBox.Show(respuesta);
+                ConsultarServidor(mensaje);
             }
             if(Partida.Checked)
             {
@@ -254,11 +326,8 @@ namespace clienteJuegoSO
                 {
                     // Quiere saber los jugadores de la partida
                     string mensaje = "5/" + partida_txt.Text;
-
                     // Enviamos al servidor el numero de partida
-                    string respuesta = ConsultarServidor(mensaje);
-
-                    MessageBox.Show(respuesta);
+                    ConsultarServidor(mensaje);
                 }
             }
             if(Conectados.Checked)
@@ -268,34 +337,7 @@ namespace clienteJuegoSO
                 string mensaje = "6/";
 
                 // Enviamos al servidor el numero de partida
-                string respuesta = ConsultarServidor(mensaje);
-                string[] respuestaTokens = respuesta.Split(new char[1] { '/' });
-                int n = Convert.ToInt32(respuestaTokens[0]);
-
-                ConectadosGrid.Show();
-                ConectadosGrid.Rows.Clear();
-                ConectadosGrid.Columns.Clear();
-                ConectadosGrid.ColumnCount = 2;
-                ConectadosGrid.RowCount = n;
-                ConectadosGrid.Columns[0].HeaderText = "Jugador";
-                ConectadosGrid.Columns[1].HeaderText = "Socket";
-
-                int j = 0;
-                int i = 1;
-                while(i<=n)
-                {
-                    ConectadosGrid.Rows[j].Cells[0].Value = respuestaTokens[i];
-                    i = i + 1;
-                    j = j + 1;
-                }
-                j = 0;
-                while(i<=(2*n))
-                {
-                    ConectadosGrid.Rows[j].Cells[1].Value = respuestaTokens[i];
-                    i = i + 1;
-                    j = j + 1;
-                }
-
+                ConsultarServidor(mensaje);
             }
         }
 
