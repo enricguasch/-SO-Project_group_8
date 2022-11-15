@@ -40,9 +40,9 @@ ListaConectados miLista;
 char *p;
 //Pasamos la lista por referencia y los parametros de cada conectado!!!
 int Pon(ListaConectados *lista, char nombre[20], int socket){
-	//A�ade nuevo conectado, Retorna 0 si ok y -1 si no lo ha podido a�adir.
+	//A?ade nuevo conectado, Retorna 0 si ok y -1 si no lo ha podido a?adir.
 	if(lista->num==100)
-		return -1; //No podemos a�adir un conectado
+		return -1; //No podemos a?adir un conectado
 	else{
 		pthread_mutex_lock(&mutex); // No me interrumpas ahora
 		strcpy(lista->conectados[lista->num].nombre,nombre);
@@ -196,7 +196,7 @@ int LogIn (char pword[30], char nombre[30])
 	int err;
 	char consulta[512];
 	
-	//Tenemos el nombre y la contrase￱a, comprobamos si hay un usuario que coincida.
+	//Tenemos el nombre y la contrase???a, comprobamos si hay un usuario que coincida.
 	sprintf(consulta,"SELECT COUNT(jugadores.id) FROM (partidas,jugadores,registro) WHERE "
 			"jugadores.username='%s' AND jugadores.pword='%s';",nombre,pword);
 	
@@ -224,7 +224,7 @@ int LogIn (char pword[30], char nombre[30])
 	
 }
 void Respuesta_LogIn(char pword[30], char nombre[30], int sock_conn,char respuesta[512])
-	//Busca en la base de datos el usuario y contrase�a para comprobar si 
+	//Busca en la base de datos el usuario y contrase?a para comprobar si 
 	//el usuario existe.
 {	
 	int err;
@@ -239,7 +239,7 @@ void Respuesta_LogIn(char pword[30], char nombre[30], int sock_conn,char respues
 	if (usuario_conectado==0)
 	{
 		// Ya tenemos el nombre
-		// A￱adimos Usuario a la lista:
+		// A???adimos Usuario a la lista:
 		Pon(&miLista,nombre,sock_conn);
 		
 		resultado = LogIn(pword, nombre);
@@ -279,7 +279,7 @@ int Registrar (char pword[30], char nombre[30], char gmail[50])
 	id = atoi(row[0]) + 1;
 	
 	
-	//Tenemos el nombre y la contrase￱a, comprobamos si hay un usuario que coincida.
+	//Tenemos el nombre y la contrase???a, comprobamos si hay un usuario que coincida.
 	sprintf(consulta,"INSERT INTO jugadores (id,username,pword,mail) VALUES (%d,'%s','%s','%s');",id,nombre,pword,gmail);
 	
 	err=mysql_query (conn, consulta);
@@ -307,7 +307,7 @@ void Respuesta_Registrar(char pword[30], char nombre[30], char gmail[50], int so
 	}
 	if (usuario_conectado==0)
 	{
-		// A￱adimos Usuario a la lista:
+		// A???adimos Usuario a la lista:
 		Pon(&miLista,nombre,sock_conn);
 		
 		resultado = Registrar(pword, nombre, gmail);
@@ -536,7 +536,7 @@ void *AtenderCliente (void *socket)
 		// Ahora recibimos su peticion
 		ret=read(sock_conn,peticion, sizeof(peticion));
 		printf ("Recibida una peticion\n");
-		// Tenemos que a�adirle la marca de fin de string 
+		// Tenemos que a?adirle la marca de fin de string 
 		// para que no escriba lo que hay despues en el buffer
 		peticion[ret]='\0';
 		//Escribimos la peticion en la consola
@@ -564,7 +564,9 @@ void *AtenderCliente (void *socket)
 		
 		if (codigo == 0)
 		{		
-			terminar = Respuesta_Desconectar(nombre,respuesta);
+			/*terminar = Respuesta_Desconectar(nombre,respuesta);*/
+			terminar=1;
+			Elimina(&miLista,nombre);
 		}
 		else if (codigo == 1)
 		{
@@ -585,9 +587,12 @@ void *AtenderCliente (void *socket)
 		else if (codigo==5)//Nueva peticion: Decir si es alto o bajo
 		{
 			JugadoresEnPartida(dato,respuesta);
-
 		}
-		else if (codigo==6) //Dame lista de conectados:
+		sprintf(mensaje,"%d*%s",codigo,respuesta);
+		printf("Mensaje enviado: %s\n",mensaje);
+		write (sock_conn,mensaje,strlen(mensaje));
+		
+		if ((codigo==0) || (codigo==1)||(codigo==2))
 		{
 			Conectados(respuesta);
 			sprintf(notificacion,"6*%s",respuesta);
@@ -595,12 +600,6 @@ void *AtenderCliente (void *socket)
 			int j;
 			for (j=0; j<i; j++)
 				write (sockets[j],notificacion, strlen(notificacion));
-		}
-		if (codigo!=6)
-		{
-			sprintf(mensaje,"%d*%s",codigo,respuesta);
-			printf("Mensaje enviado: %s\n",mensaje);
-			write (sock_conn,mensaje,strlen(mensaje));
 		}
 		strcpy(respuesta,"");
 		strcpy(mensaje,"");
@@ -641,7 +640,7 @@ int main(int argc, char *argv[])
 	//htonl formatea el numero que recibe al formato necesario
 	serv_adr.sin_addr.s_addr = htonl(INADDR_ANY);
 	// escucharemos en el  ismo port que usa el cliente
-	serv_adr.sin_port = htons(9200);
+	serv_adr.sin_port = htons(9000);
 	if (bind(sock_listen, (struct sockaddr *) &serv_adr, sizeof(serv_adr)) < 0)
 		printf ("Error al bind");
 	//La cola de peticiones pendientes no podr? ser superior a 4
@@ -659,7 +658,7 @@ int main(int argc, char *argv[])
 		sockets[i] = sock_conn;
 		//sock_conn es el socket que usaremos para este cliente
 		// Crear thred y decirle que tiene que hacer:
-		pthread_create (&thread, NULL, AtenderCliente ,&sockets[i]);	//No podem fer que els vectors siguin infinits i arriba un moment que no podem col￯﾿ﾯ￯ﾾﾾ￯ﾾﾷlocar els sockets a la posicio que tocaria
+		pthread_create (&thread, NULL, AtenderCliente ,&sockets[i]);	//No podem fer que els vectors siguin infinits i arriba un moment que no podem col???????????????????????????locar els sockets a la posicio que tocaria
 		i = i+1;
 	}
 	mysql_close (conn);

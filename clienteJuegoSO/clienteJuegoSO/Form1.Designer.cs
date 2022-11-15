@@ -42,7 +42,6 @@ namespace clienteJuegoSO
             this.desconectar_btn = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.ConectadosGrid = new System.Windows.Forms.DataGridView();
-            this.Conectados = new System.Windows.Forms.RadioButton();
             this.label7 = new System.Windows.Forms.Label();
             this.partida_txt = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -52,6 +51,7 @@ namespace clienteJuegoSO
             this.request_btn = new System.Windows.Forms.Button();
             this.nombre_txt = new System.Windows.Forms.TextBox();
             this.uiTest_btn = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ConectadosGrid)).BeginInit();
             this.SuspendLayout();
@@ -174,8 +174,8 @@ namespace clienteJuegoSO
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.groupBox1.Controls.Add(this.label8);
             this.groupBox1.Controls.Add(this.ConectadosGrid);
-            this.groupBox1.Controls.Add(this.Conectados);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.partida_txt);
             this.groupBox1.Controls.Add(this.label6);
@@ -196,26 +196,13 @@ namespace clienteJuegoSO
             // ConectadosGrid
             // 
             this.ConectadosGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.ConectadosGrid.Location = new System.Drawing.Point(545, 318);
+            this.ConectadosGrid.Location = new System.Drawing.Point(511, 318);
             this.ConectadosGrid.Name = "ConectadosGrid";
             this.ConectadosGrid.RowHeadersVisible = false;
             this.ConectadosGrid.RowHeadersWidth = 82;
             this.ConectadosGrid.RowTemplate.Height = 33;
             this.ConectadosGrid.Size = new System.Drawing.Size(451, 227);
             this.ConectadosGrid.TabIndex = 15;
-            // 
-            // Conectados
-            // 
-            this.Conectados.AutoSize = true;
-            this.Conectados.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Conectados.Location = new System.Drawing.Point(73, 371);
-            this.Conectados.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.Conectados.Name = "Conectados";
-            this.Conectados.Size = new System.Drawing.Size(357, 35);
-            this.Conectados.TabIndex = 14;
-            this.Conectados.TabStop = true;
-            this.Conectados.Text = "Dame lista de conectados";
-            this.Conectados.UseVisualStyleBackColor = true;
             // 
             // label7
             // 
@@ -316,6 +303,16 @@ namespace clienteJuegoSO
             this.uiTest_btn.UseVisualStyleBackColor = true;
             this.uiTest_btn.Click += new System.EventHandler(this.uiTest_btn_Click);
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(103, 318);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(377, 37);
+            this.label8.TabIndex = 16;
+            this.label8.Text = "Jugadores Conectados:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
@@ -369,9 +366,9 @@ namespace clienteJuegoSO
         private System.Windows.Forms.TextBox nombre_txt;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox partida_txt;
-        private System.Windows.Forms.RadioButton Conectados;
         private System.Windows.Forms.DataGridView ConectadosGrid;
         private System.Windows.Forms.Button uiTest_btn;
+        private System.Windows.Forms.Label label8;
     }
 }
 

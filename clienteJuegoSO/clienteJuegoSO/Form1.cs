@@ -31,29 +31,28 @@ namespace clienteJuegoSO
                 string [] trozos = RespuestaServidor();
                 int codigo = Convert.ToInt32(trozos[0]);
                 string respuesta = trozos[1].Split('\0')[0];
-                MessageBox.Show(respuesta);
 
                 switch (codigo)
                 {
-                    case 0:
-                        if (Convert.ToInt32(respuesta)==0)
-                        {
-                            //Nos desconectamos
-                            this.BackColor = Color.Gray;
-                            server.Shutdown(SocketShutdown.Both);
-                            server.Close();
-                            esconderPantalla2();
-                            username_txt.Clear();
-                            password_txt.Clear();
-                            gmail_txt.Clear();
-                            mostrarPantalla1();
-                            server = ConectaServidor(server);
-                        }
-                        else
-                        {
-                            MessageBox.Show("No se ha podido realizar la desconexión.");
-                        }
-                        break;
+                    //case 0:
+                    //    if (Convert.ToInt32(respuesta)==0)
+                    //    {
+                    //        //Nos desconectamos
+                    //        this.BackColor = Color.Gray;
+                    //        server.Shutdown(SocketShutdown.Both);
+                    //        server.Close();
+                    //        esconderPantalla2();
+                    //        username_txt.Clear();
+                    //        password_txt.Clear();
+                    //        gmail_txt.Clear();
+                    //        mostrarPantalla1();
+                    //        server = ConectaServidor(server);
+                    //    }
+                    //    else
+                    //    {
+                    //        MessageBox.Show("No se ha podido realizar la desconexión.");
+                    //    }
+                    //    break;
                     case 1:  // respuesta a LogIN
                         //Si el usuario existe y la contraseña es correcta lo dejamos entrar al juego
                         if (Convert.ToInt32(respuesta) == 0)
@@ -149,10 +148,32 @@ namespace clienteJuegoSO
 
         private Socket ConectaServidor(Socket server)
         {
+            ////Creamos un IPEndPoint con el ip del servidor y puerto del servidor 
+            ////al que deseamos conectarnos
+            //IPAddress direc = IPAddress.Parse("192.168.56.102");
+            //IPEndPoint ipep = new IPEndPoint(direc, 9100);
+
+            ////Creamos el socket 
+            //server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
+            //try
+            //{
+            //    server.Connect(ipep);//Intentamos conectar el socket
+            //    this.BackColor = Color.Green;
+            //    //pongo en marcha el thread que atenderá los mensajes del servidor
+            //}
+            //catch(SocketException)
+            //{
+            //    //Si hay excepcion imprimimos error y salimos del programa con return 
+            //    MessageBox.Show("No he podido conectar con el servidor");
+            //    return;
+            //}
+            //ThreadStart ts = delegate { AtenderServidor(); };
+            //atender = new Thread(ts);
+            //atender.Start();
             //Creamos un IPEndPoint con el ip del servidor y puerto del servidor 
             //al que deseamos conectarnos
             IPAddress direc = IPAddress.Parse("192.168.56.102");
-            IPEndPoint ipep = new IPEndPoint(direc, 9200);
+            IPEndPoint ipep = new IPEndPoint(direc, 9000);
 
             //Creamos el socket 
             server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
@@ -160,18 +181,20 @@ namespace clienteJuegoSO
             {
                 server.Connect(ipep);//Intentamos conectar el socket
                 this.BackColor = Color.Green;
+
                 //pongo en marcha el thread que atenderá los mensajes del servidor
                 ThreadStart ts = delegate { AtenderServidor(); };
                 atender = new Thread(ts);
                 atender.Start();
                 return server;
             }
-            catch(SocketException ex)
+            catch (SocketException ex)
             {
                 //Si hay excepcion imprimimos error y salimos del programa con return 
                 MessageBox.Show("No he podido conectar con el servidor");
                 return server;
             }
+
         }
 
         private void ConsultarServidor(string mensaje)
@@ -201,7 +224,6 @@ namespace clienteJuegoSO
             request_btn.Hide();
             groupBox1.Hide();
             desconectar_btn.Hide();
-            Conectados.Hide();
         }
         private void mostrarPantalla2()
         {
@@ -215,7 +237,6 @@ namespace clienteJuegoSO
             request_btn.Show();
             groupBox1.Show();
             desconectar_btn.Show();
-            Conectados.Show();
             ConectadosGrid.Hide();
         }
         private void esconderPantalla1()
@@ -292,6 +313,18 @@ namespace clienteJuegoSO
             //Mensaje de desconexión
             string mensaje = "0/";
             ConsultarServidor(mensaje);
+
+            atender.Abort();
+            //Nos desconectamos
+            this.BackColor = Color.Gray;
+            server.Shutdown(SocketShutdown.Both);
+            server.Close();
+            esconderPantalla2();
+            username_txt.Clear();
+            password_txt.Clear();
+            gmail_txt.Clear();
+            mostrarPantalla1();
+            server = ConectaServidor(server);
         }
 
         private void request_btn_Click(object sender, EventArgs e)
@@ -330,22 +363,13 @@ namespace clienteJuegoSO
                     ConsultarServidor(mensaje);
                 }
             }
-            if(Conectados.Checked)
-            {
-
-                // Quiere saber los jugadores de la partida
-                string mensaje = "6/";
-
-                // Enviamos al servidor el numero de partida
-                ConsultarServidor(mensaje);
-            }
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             
             esconderPantalla2();
-            server = ConectaServidor(server);
+            server=ConectaServidor(server);
 
         }
 
