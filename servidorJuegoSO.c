@@ -57,16 +57,32 @@ int Pon(ListaConectados *lista, char nombre[20], int socket){
 // Funcion que devuelve el nombre de un conectado a partir de su socket si esta en la lista
 int DamePosicion(ListaConectados *lista, char nombre[20]){
 	//Devuelvela posicion o -1 si no esta en la lista
-	int i = 0;
+	int j = 0;
 	int encontrado = 0;
-	while ((i<lista->num) && !encontrado){
-		if(strcmp(lista->conectados[i].nombre,nombre)==0)
+	while ((j<lista->num) && !encontrado){
+		if(strcmp(lista->conectados[j].nombre,nombre)==0)
 			encontrado = 1;
 		if(!encontrado)
-			i=i+1;
+			j=j+1;
 	}
 	if(encontrado)
-		return i;
+		return j;
+	else
+		return -1;
+}
+
+int BuscaSocket(ListaConectados *lista, int socket){
+	//Devuelvela posicion o -1 si no esta en la lista
+	int j = 0;
+	int encontrado = 0;
+	while ((j<lista->num) && !encontrado){
+		if(lista->conectados[j].socket==socket)
+			encontrado = 1;
+		if(!encontrado)
+			j=j+1;
+	}
+	if(encontrado)
+		return socket;
 	else
 		return -1;
 }
@@ -78,13 +94,14 @@ int Elimina(ListaConectados *lista, char nombre[20]){
 	if (pos==-1)
 		return -1;
 	else{
-		int i;
+		int j;
 		pthread_mutex_lock(&mutex);
-		for(i=pos;i<lista->num-1;i++)	//Recorremos la lista a partir de la posicion que queremos eliminar y asignamos el siguiente elemento al anterior. Recorremos solo hasta num-1!!!
+		for(j=pos;j<lista->num-1;j++)	//Recorremos la lista a partir de la posicion que queremos eliminar y asignamos el siguiente elemento al anterior. Recorremos solo hasta num-1!!!
 		{
 			//lista->conectados[i] = lista->conectados[i+1];
-			strcpy(lista->conectados[i].nombre, lista->conectados[i+1].nombre);
-			lista->conectados[i].socket = lista->conectados[i+1].socket;	
+			strcpy(lista->conectados[j].nombre, lista->conectados[j+1].nombre);
+			lista->conectados[j].socket = lista->conectados[j+1].socket;
+			sockets[j]=sockets[j+1];
 		}
 		lista->num--;	//Actualizamos el numero de elementos de la lista!!
 		pthread_mutex_unlock(&mutex);
@@ -113,10 +130,10 @@ void DameConectados(ListaConectados *lista, char conectados[300]){
 	//Primero pone el numero de conectados
 	// "3/Juan/Maria/Pedro"
 	sprintf(conectados, "%d", lista->num);
-	int i;
-	for(i=0;i<lista->num;i++)
+	int j;
+	for(j=0;j<lista->num;j++)
 	{
-		sprintf(conectados,"%s/%s",conectados,lista->conectados[i].nombre);
+		sprintf(conectados,"%s/%s",conectados,lista->conectados[j].nombre);
 	}
 }
 
@@ -160,9 +177,9 @@ void Conectados(char respuesta[512]){
 	char *p1;
 	p1 = strtok(misConectados, "/");
 	int n = atoi(p1);
-	int i;
+	int j;
 	
-	for(i=0;i<n;i++)
+	for(j=0;j<n;j++)
 	{
 		char nombre[20];
 		p1 = strtok(NULL, "/");
@@ -230,29 +247,24 @@ void Respuesta_LogIn(char pword[30], char nombre[30], int sock_conn,char respues
 	int err;
 	int resultado;	
 	int usuario_conectado = 0;
-	int i = 0;
-	while (i<miLista.num){
-		if (strcmp(miLista.conectados[i].nombre, nombre)==0)
+	int j = 0;
+	while (j<miLista.num){
+		if (strcmp(miLista.conectados[j].nombre, nombre)==0)
 			usuario_conectado=1;
-		i++;
+		j++;
 	}
 	if (usuario_conectado==0)
 	{
-		// Ya tenemos el nombre
-		// A￱adimos Usuario a la lista:
-		Pon(&miLista,nombre,sock_conn);
-		
 		resultado = LogIn(pword, nombre);
 		
+		if (resultado==0)
+			Pon(&miLista,nombre,sock_conn);
 		
 	}
 	else{
-		int resultado = 2;
+		resultado = 2;
 	}
-	if (resultado==-2)
-		strcpy(respuesta,"No se han obtenido datos en la consulta\n");
-	else
-		sprintf(respuesta,"%d",resultado);
+	sprintf(respuesta,"%d",resultado);
 	printf("Respuesta: %s\n", respuesta);
 }
 
@@ -299,15 +311,15 @@ void Respuesta_Registrar(char pword[30], char nombre[30], char gmail[50], int so
 	int resultado;
 	
 	int usuario_conectado = 0;
-	int i = 0;
-	while (i<miLista.num){
-		if (strcmp(miLista.conectados[i].nombre, nombre)==0)
+	int j = 0;
+	while (j<miLista.num){
+		if (strcmp(miLista.conectados[j].nombre, nombre)==0)
 			usuario_conectado=1;
-		i++;
+		j++;
 	}
 	if (usuario_conectado==0)
 	{
-		// A￱adimos Usuario a la lista:
+		// A�adimos Usuario a la lista:
 		Pon(&miLista,nombre,sock_conn);
 		
 		resultado = Registrar(pword, nombre, gmail);
@@ -499,7 +511,7 @@ void JugadoresEnPartida(char dato[20], char respuesta[512])
 	row = mysql_fetch_row (resultado);
 	
 	
-	int i = 1;
+	int j = 1;
 	if (row == NULL)
 		strcpy(respuesta,"No se han obtenido datos en la consulta\n");
 	else
@@ -507,7 +519,7 @@ void JugadoresEnPartida(char dato[20], char respuesta[512])
 	while (row !=NULL) {
 		sprintf (respuesta,"%s%s\n", respuesta, row[0]);
 		row = mysql_fetch_row (resultado);
-		i++;
+		j++;
 	}
 	printf("Respuesta: %s\n", respuesta);
 	// Enviamos la respuesta
@@ -564,7 +576,12 @@ void *AtenderCliente (void *socket)
 		
 		if (codigo == 0)
 		{		
-			terminar = Respuesta_Desconectar(nombre,respuesta);
+			p = strtok(NULL,"/");
+			strcpy(nombre,p);
+			//terminar = Respuesta_Desconectar(nombre,respuesta);
+			Elimina(&miLista,nombre);
+			terminar = 1;
+			
 		}
 		else if (codigo == 1)
 		{
@@ -585,22 +602,20 @@ void *AtenderCliente (void *socket)
 		else if (codigo==5)//Nueva peticion: Decir si es alto o bajo
 		{
 			JugadoresEnPartida(dato,respuesta);
-
 		}
-		else if (codigo==6) //Dame lista de conectados:
+		sprintf(mensaje,"%d*%s",codigo,respuesta);
+		printf("Mensaje enviado: %s\n",mensaje);
+		write (sock_conn,mensaje,strlen(mensaje));
+		if ((codigo==0)||(codigo==1)||(codigo==2))
 		{
 			Conectados(respuesta);
 			sprintf(notificacion,"6*%s",respuesta);
-			printf("Noti enviado: %s\n",notificacion);
 			int j;
-			for (j=0; j<i; j++)
-				write (sockets[j],notificacion, strlen(notificacion));
-		}
-		if (codigo!=6)
-		{
-			sprintf(mensaje,"%d*%s",codigo,respuesta);
-			printf("Mensaje enviado: %s\n",mensaje);
-			write (sock_conn,mensaje,strlen(mensaje));
+			for (j=0; j<miLista.num; j++)
+			{
+				printf("Noti enviado: %s\n",notificacion);
+				write (miLista.conectados[j].socket,notificacion, strlen(notificacion));
+			}
 		}
 		strcpy(respuesta,"");
 		strcpy(mensaje,"");
@@ -641,7 +656,7 @@ int main(int argc, char *argv[])
 	//htonl formatea el numero que recibe al formato necesario
 	serv_adr.sin_addr.s_addr = htonl(INADDR_ANY);
 	// escucharemos en el  ismo port que usa el cliente
-	serv_adr.sin_port = htons(9200);
+	serv_adr.sin_port = htons(9020);
 	if (bind(sock_listen, (struct sockaddr *) &serv_adr, sizeof(serv_adr)) < 0)
 		printf ("Error al bind");
 	//La cola de peticiones pendientes no podr? ser superior a 4
