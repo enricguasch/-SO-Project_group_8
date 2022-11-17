@@ -15,6 +15,8 @@ URL Parte Gráfica: https://drive.google.com/file/d/1g0gQivWbipWpE3m6a8B0azAGk0E
 
 
 Versión 3 generada por Pau Gimenez  
-Versión 3 verificada por Gerard López
+Versión 3 verificada por Gerard López  
+Versión 3 comunicada por Enric Guasch
+URL: https://drive.google.com/file/d/1LXQbORKOm4D6hHFdbrCLKBwuWo0Wag3b/view?usp=sharing
 
 
