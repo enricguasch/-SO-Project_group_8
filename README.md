@@ -21,6 +21,6 @@ URL: https://drive.google.com/file/d/1LXQbORKOm4D6hHFdbrCLKBwuWo0Wag3b/view?usp=
 
 
 Versión 4 generada por Enric Guasch  
-Versión 4 verificada por Pau Gimenez  
+Versión 4 verificada por Pau Giménez
 
 
