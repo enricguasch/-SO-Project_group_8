@@ -18,6 +18,12 @@ namespace clienteJuegoSO
         Socket server;
         Thread atender;
         string nombre;
+        string usuario;
+        string jugador2 = "";
+        string jugador3 = "";
+        string jugador4 = "";
+        int numJugadores = 1;
+        int numInvitados = 0;
         public Form1()
         {
             InitializeComponent();
@@ -32,7 +38,8 @@ namespace clienteJuegoSO
                 //Recibimos mensaje del servidor
                 byte[] msg2 = new byte[80];
                 server.Receive(msg2);
-                string[] trozos = Encoding.ASCII.GetString(msg2).Split('*');
+                string mensaje_limpio = Encoding.ASCII.GetString(msg2).Split('\0')[0];
+                string[] trozos = mensaje_limpio.Split('*');
 
                 int codigo = Convert.ToInt32(trozos[0]);
                 string respuesta = trozos[1].Split('\0')[0];
@@ -62,7 +69,7 @@ namespace clienteJuegoSO
                     //    }
                     //    break;
                     case 1:  // respuesta a LogIN
-                                //Si el usuario existe y la contraseña es correcta lo dejamos entrar al juego
+                             //Si el usuario existe y la contraseña es correcta lo dejamos entrar al juego
                         if (Convert.ToInt32(respuesta) == 0)
                         {
                             MessageBox.Show("Bienvenido de nuevo " + username_txt.Text);
@@ -89,7 +96,7 @@ namespace clienteJuegoSO
                         }
                         break;
                     case 2:      //respuesta a si mi nombre es bonito
-                                    //Si el usuario se ha creado correctamente le dejamos entrar al juego
+                                 //Si el usuario se ha creado correctamente le dejamos entrar al juego
                         if (Convert.ToInt32(respuesta) == 0)
                         {
                             MessageBox.Show("Gracias por registrarte " + username_txt.Text);
@@ -127,32 +134,62 @@ namespace clienteJuegoSO
                         string[] respuestaTokens = respuesta.Split('/');
                         int n = Convert.ToInt32(respuestaTokens[0]);
 
-                        ConectadosGrid.Show();
                         ConectadosGrid.Rows.Clear();
-                        ConectadosGrid.Columns.Clear();
-                        ConectadosGrid.ColumnCount = 2;
-                        ConectadosGrid.RowCount = n;
-                        ConectadosGrid.Columns[0].HeaderText = "Jugador";
-                        ConectadosGrid.Columns[1].HeaderText = "Socket";
+                        ConectadosGrid.ColumnHeadersVisible = false;
+                        ConectadosGrid.Rows[0].Cells[0].Value = respuestaTokens[1];
 
-                        int j = 0;
-                        int i = 1;
+                        int i = 2;
                         while (i <= n)
                         {
-                            ConectadosGrid.Rows[j].Cells[0].Value = respuestaTokens[i];
+                            ConectadosGrid.Rows.Add(respuestaTokens[i]);
                             i++;
-                            j++;
                         }
-                        j = 0;
-                        while (i <= (2 * n))
+                        //j = 0;
+                        //while (i <= (2 * n))
+                        //{
+                        //    ConectadosGrid.Rows.Add(respuestaTokens[i]);
+                        //    i++;
+                        //    j++;
+                        //}
+                        ConectadosGrid.ClearSelection();
+                        break;
+                    case 8:
+                        string[] info = respuesta.Split('/');
+                        DialogResult dr = MessageBox.Show("El Jugador: " + info[0] + " te ha invitado a jugar la partida: " + info[1] + "\n" + "Quieres aceptar la invitacion?", "Invitacion", MessageBoxButtons.YesNo);
+                        switch (dr)
                         {
-                            ConectadosGrid.Rows[j].Cells[1].Value = respuestaTokens[i];
-                            i++;
-                            j++;
+                            case DialogResult.Yes:
+                                string mensaje = "9/" + usuario + "/SI/" + info[1];
+                                ConsultarServidor(mensaje);
+                                break;
+                            case DialogResult.No:
+                                string mensaje2 = "9/" + usuario + "/NO/" + info[1];
+                                ConsultarServidor(mensaje2);
+                                break;
                         }
                         break;
+                    case 10:
+                        string[] info2 = respuesta.Split('/');
+                        numJugadores++;
+                        if (info2[1] == "SI")
+                        {
+                            MessageBox.Show("El jugador: " + info2[0] + " ha aceptado tu invitacion para jugar la partida " + info2[2]);
+                            MessageBox.Show("NumJugadores = " + numJugadores + "     NumInvitados = " + numInvitados);
+                            if (numJugadores - 1 == numInvitados)
+                            {
+                                string mensaje3 = "11/1/" + info2[2];
+                                ConsultarServidor(mensaje3);
+                                uiTest_btn.PerformClick();
+                            }
+                        }
+                        else
+                            MessageBox.Show("El jugador: " + info2[0] + " no ha aceptado tu invitacion para jugar la partida " + info2[2] + "\nNo se puede jugar la partida. Vuelve a intentarlo");
+                        break;
+                    case 12:
+                        MessageBox.Show("Empieza la partida " + respuesta + "!!!!!");
+                        uiTest_btn.PerformClick();
+                        break;
                 }
-               
             }
         }
 
@@ -161,7 +198,7 @@ namespace clienteJuegoSO
             //Creamos un IPEndPoint con el ip del servidor y puerto del servidor 
             //al que deseamos conectarnos
             IPAddress direc = IPAddress.Parse("192.168.56.102");
-            IPEndPoint ipep = new IPEndPoint(direc, 9020);
+            IPEndPoint ipep = new IPEndPoint(direc, 9060);
 
             //Creamos el socket 
             server = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
@@ -207,6 +244,7 @@ namespace clienteJuegoSO
             request_btn.Hide();
             groupBox1.Hide();
             desconectar_btn.Hide();
+            ConectadosGrid.Hide();
         }
         private void mostrarPantalla2()
         {
@@ -219,7 +257,7 @@ namespace clienteJuegoSO
             request_btn.Show();
             groupBox1.Show();
             desconectar_btn.Show();
-            ConectadosGrid.Hide();
+            ConectadosGrid.Show();
         }
         private void esconderPantalla1()
         {
@@ -266,6 +304,7 @@ namespace clienteJuegoSO
                 string mensaje = "1/" + username_txt.Text.ToLower() + "/" + password_txt.Text;
                 usuario = username_txt.Text.ToLower();
                 // Enviamos al servidor el usuario y contraseña tecleados
+    
                 ConsultarServidor(mensaje);
             }
         }
@@ -286,6 +325,7 @@ namespace clienteJuegoSO
                 string mensaje = "2/" + username_txt.Text.ToLower() + "/" + password_txt.Text + "/" + gmail_txt.Text.ToLower();
                 usuario = username_txt.Text.ToLower();
                 // Enviamos al servidor el usuario y contraseña tecleados
+
                 ConsultarServidor(mensaje);
 
                 
@@ -307,7 +347,6 @@ namespace clienteJuegoSO
             password_txt.Clear();
             gmail_txt.Clear();
             mostrarPantalla1();
-            ConectaServidor();
         }
 
         private void request_btn_Click(object sender, EventArgs e)
@@ -353,7 +392,7 @@ namespace clienteJuegoSO
             
             esconderPantalla2();
             ConectaServidor();
-
+            ConectadosGrid.ColumnCount = 1;
         }
 
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
