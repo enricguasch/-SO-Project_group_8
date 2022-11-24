@@ -42,16 +42,18 @@ namespace clienteJuegoSO
             this.desconectar_btn = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.ConectadosGrid = new System.Windows.Forms.DataGridView();
-            this.Conectados = new System.Windows.Forms.RadioButton();
             this.label7 = new System.Windows.Forms.Label();
             this.partida_txt = new System.Windows.Forms.TextBox();
-            this.label6 = new System.Windows.Forms.Label();
             this.Partida = new System.Windows.Forms.RadioButton();
             this.Mejor = new System.Windows.Forms.RadioButton();
             this.Victorias = new System.Windows.Forms.RadioButton();
             this.request_btn = new System.Windows.Forms.Button();
             this.nombre_txt = new System.Windows.Forms.TextBox();
             this.uiTest_btn = new System.Windows.Forms.Button();
+            this.conectar_btn = new System.Windows.Forms.Button();
+            this.Invitar = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.Seleccionados = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ConectadosGrid)).BeginInit();
             this.SuspendLayout();
@@ -174,11 +176,12 @@ namespace clienteJuegoSO
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.groupBox1.Controls.Add(this.Seleccionados);
+            this.groupBox1.Controls.Add(this.label6);
+            this.groupBox1.Controls.Add(this.Invitar);
             this.groupBox1.Controls.Add(this.ConectadosGrid);
-            this.groupBox1.Controls.Add(this.Conectados);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Controls.Add(this.partida_txt);
-            this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.Partida);
             this.groupBox1.Controls.Add(this.Mejor);
             this.groupBox1.Controls.Add(this.Victorias);
@@ -195,27 +198,17 @@ namespace clienteJuegoSO
             // 
             // ConectadosGrid
             // 
+            this.ConectadosGrid.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.ConectadosGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.ConectadosGrid.Location = new System.Drawing.Point(545, 318);
+            this.ConectadosGrid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ConectadosGrid.Name = "ConectadosGrid";
             this.ConectadosGrid.RowHeadersVisible = false;
             this.ConectadosGrid.RowHeadersWidth = 82;
             this.ConectadosGrid.RowTemplate.Height = 33;
-            this.ConectadosGrid.Size = new System.Drawing.Size(451, 227);
+            this.ConectadosGrid.Size = new System.Drawing.Size(451, 228);
             this.ConectadosGrid.TabIndex = 15;
-            // 
-            // Conectados
-            // 
-            this.Conectados.AutoSize = true;
-            this.Conectados.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Conectados.Location = new System.Drawing.Point(73, 371);
-            this.Conectados.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
-            this.Conectados.Name = "Conectados";
-            this.Conectados.Size = new System.Drawing.Size(357, 35);
-            this.Conectados.TabIndex = 14;
-            this.Conectados.TabStop = true;
-            this.Conectados.Text = "Dame lista de conectados";
-            this.Conectados.UseVisualStyleBackColor = true;
+            this.ConectadosGrid.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.ConectadosGrid_CellClick);
             // 
             // label7
             // 
@@ -235,17 +228,6 @@ namespace clienteJuegoSO
             this.partida_txt.Name = "partida_txt";
             this.partida_txt.Size = new System.Drawing.Size(201, 31);
             this.partida_txt.TabIndex = 12;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(584, 70);
-            this.label6.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(136, 26);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "(minúsculas)";
             // 
             // Partida
             // 
@@ -309,6 +291,7 @@ namespace clienteJuegoSO
             // uiTest_btn
             // 
             this.uiTest_btn.Location = new System.Drawing.Point(16, 554);
+            this.uiTest_btn.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.uiTest_btn.Name = "uiTest_btn";
             this.uiTest_btn.Size = new System.Drawing.Size(213, 51);
             this.uiTest_btn.TabIndex = 21;
@@ -316,11 +299,55 @@ namespace clienteJuegoSO
             this.uiTest_btn.UseVisualStyleBackColor = true;
             this.uiTest_btn.Click += new System.EventHandler(this.uiTest_btn_Click);
             // 
+            // conectar_btn
+            // 
+            this.conectar_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.conectar_btn.Location = new System.Drawing.Point(16, 18);
+            this.conectar_btn.Margin = new System.Windows.Forms.Padding(4);
+            this.conectar_btn.Name = "conectar_btn";
+            this.conectar_btn.Size = new System.Drawing.Size(213, 71);
+            this.conectar_btn.TabIndex = 22;
+            this.conectar_btn.Text = "Conectar";
+            this.conectar_btn.UseVisualStyleBackColor = true;
+            this.conectar_btn.Click += new System.EventHandler(this.conectar_btn_Click);
+            // 
+            // Invitar
+            // 
+            this.Invitar.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Invitar.Location = new System.Drawing.Point(191, 439);
+            this.Invitar.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            this.Invitar.Name = "Invitar";
+            this.Invitar.Size = new System.Drawing.Size(220, 98);
+            this.Invitar.TabIndex = 18;
+            this.Invitar.Text = "Invitar";
+            this.Invitar.UseVisualStyleBackColor = true;
+            this.Invitar.Click += new System.EventHandler(this.Invitar_Click);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(91, 318);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(387, 37);
+            this.label6.TabIndex = 19;
+            this.label6.Text = "Jugadores seleccionados:";
+            // 
+            // Seleccionados
+            // 
+            this.Seleccionados.AutoSize = true;
+            this.Seleccionados.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Seleccionados.Location = new System.Drawing.Point(91, 375);
+            this.Seleccionados.Name = "Seleccionados";
+            this.Seleccionados.Size = new System.Drawing.Size(0, 37);
+            this.Seleccionados.TabIndex = 20;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(12F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1296, 699);
+            this.Controls.Add(this.conectar_btn);
             this.Controls.Add(this.uiTest_btn);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.desconectar_btn);
@@ -361,7 +388,6 @@ namespace clienteJuegoSO
         private System.Windows.Forms.TextBox gmail_txt;
         private System.Windows.Forms.Button desconectar_btn;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.RadioButton Partida;
         private System.Windows.Forms.RadioButton Mejor;
         private System.Windows.Forms.RadioButton Victorias;
@@ -369,9 +395,12 @@ namespace clienteJuegoSO
         private System.Windows.Forms.TextBox nombre_txt;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox partida_txt;
-        private System.Windows.Forms.RadioButton Conectados;
         private System.Windows.Forms.DataGridView ConectadosGrid;
         private System.Windows.Forms.Button uiTest_btn;
+        private System.Windows.Forms.Button conectar_btn;
+        private System.Windows.Forms.Label Seleccionados;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button Invitar;
     }
 }
 
