@@ -19,8 +19,7 @@ Versión 3 verificada por Gerard López
 Versión 3 comunicada por Enric Guasch    
 URL: https://drive.google.com/file/d/1LXQbORKOm4D6hHFdbrCLKBwuWo0Wag3b/view?usp=sharing  
 
-
 Versión 4 generada por Enric Guasch  
-Versión 4 verificada por Pau Giménez
+Versión 4 verificada por Pau Giménez  
 
 
