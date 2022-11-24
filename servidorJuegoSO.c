@@ -103,7 +103,8 @@ int Elimina(ListaConectados *lista, char nombre[20]){
 			lista->conectados[j].socket = lista->conectados[j+1].socket;
 			sockets[j]=sockets[j+1];
 		}
-		lista->num--;	//Actualizamos el numero de elementos de la lista!!
+		i = i-1;
+		lista->num = lista->num -1;	//Actualizamos el numero de elementos de la lista!!
 		pthread_mutex_unlock(&mutex);
 		return 0;
 	}
@@ -674,7 +675,7 @@ int main(int argc, char *argv[])
 		sockets[i] = sock_conn;
 		//sock_conn es el socket que usaremos para este cliente
 		// Crear thred y decirle que tiene que hacer:
-		pthread_create (&thread, NULL, AtenderCliente ,&sockets[i]);	//No podem fer que els vectors siguin infinits i arriba un moment que no podem col￯﾿ﾯ￯ﾾﾾ￯ﾾﾷlocar els sockets a la posicio que tocaria
+		pthread_create (&thread, NULL, AtenderCliente ,&sockets[i]);	//No podem fer que els vectors siguin infinits i arriba un moment que no podem col￯﾿ﾯ￯ﾾ﾿￯ﾾﾯ￯﾿ﾯ￯ﾾﾾ￯ﾾﾾ￯﾿ﾯ￯ﾾﾾ￯ﾾﾷlocar els sockets a la posicio que tocaria
 		i = i+1;
 	}
 	mysql_close (conn);

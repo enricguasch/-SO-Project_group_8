@@ -233,6 +233,7 @@ namespace clienteJuegoSO
             label3.Hide();
             label4.Hide();
             label5.Hide();
+            conectar_btn.Hide();
         }
 
         private void mostrarPantalla1()
@@ -247,11 +248,12 @@ namespace clienteJuegoSO
             label3.Show();
             label4.Show();
             label5.Show();
+            conectar_btn.Show();
         }
 
         private void login_btn_Click(object sender, EventArgs e)
         {
-            if (server is null)
+            if (!server.Connected)
             {
                 MessageBox.Show("Recuerda conectarte al servior!");
             }
@@ -262,7 +264,7 @@ namespace clienteJuegoSO
             else
             {
                 string mensaje = "1/" + username_txt.Text.ToLower() + "/" + password_txt.Text;
-
+                usuario = username_txt.Text.ToLower();
                 // Enviamos al servidor el usuario y contraseña tecleados
                 ConsultarServidor(mensaje);
             }
@@ -270,7 +272,7 @@ namespace clienteJuegoSO
 
         private void register_btn_Click(object sender, EventArgs e)
         {
-            if (server is null)
+            if (!server.Connected)
             {
                 MessageBox.Show("Recuerda conectarte al servior!");
             }
@@ -282,7 +284,7 @@ namespace clienteJuegoSO
             else
             {
                 string mensaje = "2/" + username_txt.Text.ToLower() + "/" + password_txt.Text + "/" + gmail_txt.Text.ToLower();
-
+                usuario = username_txt.Text.ToLower();
                 // Enviamos al servidor el usuario y contraseña tecleados
                 ConsultarServidor(mensaje);
 
@@ -357,12 +359,10 @@ namespace clienteJuegoSO
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             //Mensaje de desconexión
-            string mensaje = "0/";
-
-            byte[] msg = System.Text.Encoding.ASCII.GetBytes(mensaje);
-            server.Send(msg);
-
+            string mensaje = "0/" + nombre;
+            ConsultarServidor(mensaje);
             //Nos desconectamos
+            atender.Abort();
             this.BackColor = Color.Gray;
             server.Shutdown(SocketShutdown.Both);
             server.Close();
@@ -371,6 +371,96 @@ namespace clienteJuegoSO
         private void uiTest_btn_Click(object sender, EventArgs e)
         {
             new Form2().ShowDialog();
+        }
+
+        private void conectar_btn_Click(object sender, EventArgs e)
+        {
+            ConectaServidor();
+        }
+
+        private void ConectadosGrid_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            string nombre = ConectadosGrid.Rows[e.RowIndex].Cells[e.ColumnIndex].Value.ToString();
+            if (nombre == usuario)
+                MessageBox.Show("No puedes invitarte a tu mismo\n");
+            else
+            {
+                MessageBox.Show("NumInvitados = " + numInvitados + "Nombre = " + nombre);
+                if (nombre == jugador2)
+                {
+                    jugador2 = "";
+                    Seleccionados.Text = jugador3 + "  &  " + jugador4;
+                    numInvitados--;
+                }
+                else if (nombre == jugador3)
+                {
+                    jugador3 = "";
+                    Seleccionados.Text = jugador2 + "  &  " + jugador4;
+                    numInvitados--;
+                }
+                else if (nombre == jugador4)
+                {
+                    jugador4 = "";
+                    Seleccionados.Text = jugador2 + "  &  " + jugador3;
+                    numInvitados--;
+                }
+                else
+                {
+                    if (numInvitados == 0)
+                    {
+                        jugador2 = nombre;
+                        Seleccionados.Text = jugador2;
+                        numInvitados++;
+                    }
+                    else if (numInvitados == 1)
+                    {
+                        jugador3 = nombre;
+                        Seleccionados.Text = jugador2 + "  &  " + jugador3;
+                        numInvitados++;
+                    }
+                    else if (numInvitados == 2)
+                    {
+                        jugador4 = nombre;
+                        Seleccionados.Text = jugador2 + "  &  " + jugador3 + "  &  " + jugador4;
+                        numInvitados++;
+                    }
+                }
+            }
+            //else
+            //{
+            //    numInvitados++;
+            //    invitacion = invitacion + "/" + nombre;
+            //    peticion_in = Convert.ToString(numInvitados) + invitacion;
+
+            //    Seleccionados.Text = invitacion;
+            //}
+
+        }
+
+        string inv;
+        private void Invitar_Click(object sender, EventArgs e)
+        {
+            numJugadores = 1;
+            if (string.IsNullOrEmpty(Seleccionados.Text))
+            {
+                MessageBox.Show("Se necesitan jugadores para invitar.");
+            }
+            else
+            {
+                //numJugadores = numInvitados + numJugadores;
+                // Quiere saber los jugadores de la partida
+                if (numInvitados == 0)
+                    MessageBox.Show("Debes seleccionar algun jugador!!");
+                else if (numInvitados == 1)
+                    inv = "7/" + Convert.ToString(numInvitados) + "/" + jugador2;
+                else if (numInvitados == 2)
+                    inv = "7/" + Convert.ToString(numInvitados) + "/" + jugador2 + "/" + jugador3;
+                else
+                    inv = "7/" + Convert.ToString(numInvitados) + "/" + jugador2 + "/" + jugador3 + "/" + jugador4;
+                // Enviamos al servidor el numero de partida
+                MessageBox.Show(inv);
+                ConsultarServidor(inv);
+            }
         }
     }
 }
