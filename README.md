@@ -21,7 +21,7 @@ URL: https://drive.google.com/file/d/1LXQbORKOm4D6hHFdbrCLKBwuWo0Wag3b/view?usp=
 
 
 Versión 4 generada por Enric Guasch  
-Versión 4 verificada por Pau Giménez 
+Versión 4 verificada por Pau Giménez  
 Versión 4 comunicada por Gerard López  
 URL: https://drive.google.com/file/d/1yfvqQi6U4mAnep0uq-zd-5ejJ9QnBlX3/view?usp=drivesdk
 
