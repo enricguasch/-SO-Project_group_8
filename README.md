@@ -28,6 +28,8 @@ URL: https://drive.google.com/file/d/1yfvqQi6U4mAnep0uq-zd-5ejJ9QnBlX3/view?usp=
 
 Versión 5 generada por Gerard López  
 Versión 5 verificada por Enric Guasch  
+Versión 5 comunicada por Pau Giménez  
+URL: https://drive.google.com/file/d/1vzeccV-bw6pEIS50ZzoVlf768WeE0-9L/view?usp=share_link
 
 
 
