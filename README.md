@@ -27,6 +27,8 @@ URL: https://drive.google.com/file/d/1yfvqQi6U4mAnep0uq-zd-5ejJ9QnBlX3/view?usp=
 
 
 Versión 5 generada por Gerard López  
+Versión 5 verificada por Enric Guasch  
+
 
 
 
