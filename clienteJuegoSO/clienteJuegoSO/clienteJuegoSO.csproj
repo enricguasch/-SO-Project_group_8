@@ -76,6 +76,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="Guidelines.md" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -91,6 +92,27 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="bin\Debug\app\levels.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\app\hero.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\app\pawns\red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\app\pawns\black.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\app\pawns\blue.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\app\pawns\green.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\app\pawns\white.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\app\pawns\yellow.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
