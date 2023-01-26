@@ -34,7 +34,8 @@ URL: https://drive.google.com/file/d/1vzeccV-bw6pEIS50ZzoVlf768WeE0-9L/view?usp=
 
 Versión final generada por Pau Giménez  
 Versión final verificada por Gerard López  
-
+Versión final comunicada por Enric Guasch  
+URL: https://drive.google.com/drive/folders/1ud-QMHcMl_AhnTtZwVRDMq_PD8ovjeyu?usp=share_link  
 
 
 
