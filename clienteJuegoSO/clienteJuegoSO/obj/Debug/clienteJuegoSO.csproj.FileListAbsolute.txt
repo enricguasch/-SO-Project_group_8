@@ -77,3 +77,283 @@ C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOPr
 C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\-SO-Project_group_8\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.CoreCompileInputs.cache
 C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\-SO-Project_group_8\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.exe
 C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\-SO-Project_group_8\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.pdb
+C:\Users\UPC\Documents\SO\test plato\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.exe.config
+C:\Users\UPC\Documents\SO\test plato\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.exe
+C:\Users\UPC\Documents\SO\test plato\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.pdb
+C:\Users\UPC\Documents\SO\test plato\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.AssemblyReference.cache
+C:\Users\UPC\Documents\SO\test plato\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Form1.resources
+C:\Users\UPC\Documents\SO\test plato\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Form2.resources
+C:\Users\UPC\Documents\SO\test plato\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Properties.Resources.resources
+C:\Users\UPC\Documents\SO\test plato\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.GenerateResource.cache
+C:\Users\UPC\Documents\SO\test plato\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.CoreCompileInputs.cache
+C:\Users\UPC\Documents\SO\test plato\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.exe
+C:\Users\UPC\Documents\SO\test plato\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.pdb
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V6\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.exe.config
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V6\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.exe
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V6\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.pdb
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V6\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.AssemblyReference.cache
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V6\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.SuggestedBindingRedirects.cache
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V6\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Form1.resources
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V6\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Properties.Resources.resources
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V6\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.GenerateResource.cache
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V6\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.CoreCompileInputs.cache
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V6\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.exe
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V6\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.pdb
+C:\Users\Pau\Desktop\v6.1\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.AssemblyReference.cache
+C:\Users\Pau\Desktop\v6.1\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.exe
+C:\Users\Pau\Desktop\v6.1\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.pdb
+C:\Users\Pau\Desktop\v6.1\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.exe.config
+C:\Users\Pau\Desktop\v6.1\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.exe
+C:\Users\Pau\Desktop\v6.1\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.pdb
+C:\Users\Pau\Desktop\v6.1\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Form1.resources
+C:\Users\Pau\Desktop\v6.1\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Properties.Resources.resources
+C:\Users\Pau\Desktop\v6.1\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.GenerateResource.cache
+C:\Users\Pau\Desktop\v6.1\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.CoreCompileInputs.cache
+C:\Users\Pau\Desktop\V6.3\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.exe.config
+C:\Users\Pau\Desktop\V6.3\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.exe
+C:\Users\Pau\Desktop\V6.3\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.pdb
+C:\Users\Pau\Desktop\V6.3\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.AssemblyReference.cache
+C:\Users\Pau\Desktop\V6.3\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Form1.resources
+C:\Users\Pau\Desktop\V6.3\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Properties.Resources.resources
+C:\Users\Pau\Desktop\V6.3\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.GenerateResource.cache
+C:\Users\Pau\Desktop\V6.3\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.CoreCompileInputs.cache
+C:\Users\Pau\Desktop\V6.3\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.exe
+C:\Users\Pau\Desktop\V6.3\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.pdb
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V6.3\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.AssemblyReference.cache
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V6.3\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.SuggestedBindingRedirects.cache
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V6.3\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.exe
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V6.3\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.pdb
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V6.3\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.exe.config
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V6.3\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.exe
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V6.3\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.pdb
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V6.3\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Form1.resources
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V6.3\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Properties.Resources.resources
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V6.3\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.GenerateResource.cache
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V6.3\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.CoreCompileInputs.cache
+C:\Users\Pau\Desktop\V6.4\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.exe.config
+C:\Users\Pau\Desktop\V6.4\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.exe
+C:\Users\Pau\Desktop\V6.4\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.pdb
+C:\Users\Pau\Desktop\V6.4\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.AssemblyReference.cache
+C:\Users\Pau\Desktop\V6.4\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Form1.resources
+C:\Users\Pau\Desktop\V6.4\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Properties.Resources.resources
+C:\Users\Pau\Desktop\V6.4\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.GenerateResource.cache
+C:\Users\Pau\Desktop\V6.4\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.CoreCompileInputs.cache
+C:\Users\Pau\Desktop\V6.4\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.exe
+C:\Users\Pau\Desktop\V6.4\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.pdb
+C:\Users\UPC\Documents\SO\V6.5\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.AssemblyReference.cache
+C:\Users\UPC\Documents\SO\V6.5\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.exe
+C:\Users\UPC\Documents\SO\V6.5\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.pdb
+C:\Users\UPC\Documents\SO\V6.5\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.exe.config
+C:\Users\UPC\Documents\SO\V6.5\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.exe
+C:\Users\UPC\Documents\SO\V6.5\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.pdb
+C:\Users\UPC\Documents\SO\V6.5\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Form1.resources
+C:\Users\UPC\Documents\SO\V6.5\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Properties.Resources.resources
+C:\Users\UPC\Documents\SO\V6.5\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.GenerateResource.cache
+C:\Users\UPC\Documents\SO\V6.5\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.CoreCompileInputs.cache
+C:\Users\UPC\Documents\SO\V6.6\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.exe.config
+C:\Users\UPC\Documents\SO\V6.6\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.exe
+C:\Users\UPC\Documents\SO\V6.6\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.pdb
+C:\Users\UPC\Documents\SO\V6.6\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.AssemblyReference.cache
+C:\Users\UPC\Documents\SO\V6.6\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Form1.resources
+C:\Users\UPC\Documents\SO\V6.6\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Properties.Resources.resources
+C:\Users\UPC\Documents\SO\V6.6\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.GenerateResource.cache
+C:\Users\UPC\Documents\SO\V6.6\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.CoreCompileInputs.cache
+C:\Users\UPC\Documents\SO\V6.6\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.exe
+C:\Users\UPC\Documents\SO\V6.6\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.pdb
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V6.6\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.AssemblyReference.cache
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V6.6\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.SuggestedBindingRedirects.cache
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V6.6\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.exe
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V6.6\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.pdb
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V6.6\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.exe.config
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V6.6\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.exe
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V6.6\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.pdb
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V6.6\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Form1.resources
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V6.6\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Properties.Resources.resources
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V6.6\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.GenerateResource.cache
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V6.6\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.CoreCompileInputs.cache
+C:\Users\UPC\Documents\SO\V6.7\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.exe.config
+C:\Users\UPC\Documents\SO\V6.7\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.exe
+C:\Users\UPC\Documents\SO\V6.7\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.pdb
+C:\Users\UPC\Documents\SO\V6.7\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.AssemblyReference.cache
+C:\Users\UPC\Documents\SO\V6.7\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Form1.resources
+C:\Users\UPC\Documents\SO\V6.7\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Properties.Resources.resources
+C:\Users\UPC\Documents\SO\V6.7\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.GenerateResource.cache
+C:\Users\UPC\Documents\SO\V6.7\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.CoreCompileInputs.cache
+C:\Users\UPC\Documents\SO\V6.7\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.exe
+C:\Users\UPC\Documents\SO\V6.7\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.pdb
+C:\Users\UPC\Documents\SO\V7.1\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.exe.config
+C:\Users\UPC\Documents\SO\V7.1\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.exe
+C:\Users\UPC\Documents\SO\V7.1\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.pdb
+C:\Users\UPC\Documents\SO\V7.1\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.AssemblyReference.cache
+C:\Users\UPC\Documents\SO\V7.1\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Form1.resources
+C:\Users\UPC\Documents\SO\V7.1\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Properties.Resources.resources
+C:\Users\UPC\Documents\SO\V7.1\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.GenerateResource.cache
+C:\Users\UPC\Documents\SO\V7.1\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.CoreCompileInputs.cache
+C:\Users\UPC\Documents\SO\V7.1\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.exe
+C:\Users\UPC\Documents\SO\V7.1\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.pdb
+C:\Users\UPC\Documents\SO\V7.1\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Form2.resources
+C:\Users\Pau\Desktop\V7.1\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.exe.config
+C:\Users\Pau\Desktop\V7.1\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.exe
+C:\Users\Pau\Desktop\V7.1\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.pdb
+C:\Users\Pau\Desktop\V7.1\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.AssemblyReference.cache
+C:\Users\Pau\Desktop\V7.1\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Form1.resources
+C:\Users\Pau\Desktop\V7.1\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Form2.resources
+C:\Users\Pau\Desktop\V7.1\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Properties.Resources.resources
+C:\Users\Pau\Desktop\V7.1\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.GenerateResource.cache
+C:\Users\Pau\Desktop\V7.1\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.CoreCompileInputs.cache
+C:\Users\Pau\Desktop\V7.1\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.exe
+C:\Users\Pau\Desktop\V7.1\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.pdb
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V7.2\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.exe.config
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V7.2\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.exe
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V7.2\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.pdb
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V7.2\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.AssemblyReference.cache
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V7.2\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.SuggestedBindingRedirects.cache
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V7.2\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Form1.resources
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V7.2\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Form2.resources
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V7.2\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Properties.Resources.resources
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V7.2\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.GenerateResource.cache
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V7.2\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.CoreCompileInputs.cache
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V7.2\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.exe
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V7.2\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.pdb
+C:\Users\Pau\Desktop\V7.3\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.exe.config
+C:\Users\Pau\Desktop\V7.3\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.exe
+C:\Users\Pau\Desktop\V7.3\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.pdb
+C:\Users\Pau\Desktop\V7.3\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.AssemblyReference.cache
+C:\Users\Pau\Desktop\V7.3\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Form1.resources
+C:\Users\Pau\Desktop\V7.3\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Form2.resources
+C:\Users\Pau\Desktop\V7.3\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Properties.Resources.resources
+C:\Users\Pau\Desktop\V7.3\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.GenerateResource.cache
+C:\Users\Pau\Desktop\V7.3\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.CoreCompileInputs.cache
+C:\Users\Pau\Desktop\V7.3\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.exe
+C:\Users\Pau\Desktop\V7.3\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.pdb
+C:\Users\UPC\Documents\SO\V7.4\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.AssemblyReference.cache
+C:\Users\UPC\Documents\SO\V7.4\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Form1.resources
+C:\Users\UPC\Documents\SO\V7.4\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Form2.resources
+C:\Users\UPC\Documents\SO\V7.4\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Properties.Resources.resources
+C:\Users\UPC\Documents\SO\V7.4\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.GenerateResource.cache
+C:\Users\UPC\Documents\SO\V7.4\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.CoreCompileInputs.cache
+C:\Users\UPC\Documents\SO\V7.4\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.exe
+C:\Users\UPC\Documents\SO\V7.4\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.pdb
+C:\Users\UPC\Documents\SO\V7.4\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.exe.config
+C:\Users\UPC\Documents\SO\V7.4\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.exe
+C:\Users\UPC\Documents\SO\V7.4\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.pdb
+C:\Users\UPC\Documents\SO\V7.4\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Form3.resources
+C:\Users\Pau\Desktop\V7.5\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.exe.config
+C:\Users\Pau\Desktop\V7.5\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.exe
+C:\Users\Pau\Desktop\V7.5\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.pdb
+C:\Users\Pau\Desktop\V7.5\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.AssemblyReference.cache
+C:\Users\Pau\Desktop\V7.5\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Form1.resources
+C:\Users\Pau\Desktop\V7.5\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Form2.resources
+C:\Users\Pau\Desktop\V7.5\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Form3.resources
+C:\Users\Pau\Desktop\V7.5\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Properties.Resources.resources
+C:\Users\Pau\Desktop\V7.5\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.GenerateResource.cache
+C:\Users\Pau\Desktop\V7.5\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.CoreCompileInputs.cache
+C:\Users\Pau\Desktop\V7.5\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.exe
+C:\Users\Pau\Desktop\V7.5\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.pdb
+C:\Users\Pau\Desktop\V7.5\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Form4.resources
+C:\Users\UPC\Documents\SO\V7.6\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.exe.config
+C:\Users\UPC\Documents\SO\V7.6\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.exe
+C:\Users\UPC\Documents\SO\V7.6\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.pdb
+C:\Users\UPC\Documents\SO\V7.6\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.AssemblyReference.cache
+C:\Users\UPC\Documents\SO\V7.6\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Form1.resources
+C:\Users\UPC\Documents\SO\V7.6\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Form2.resources
+C:\Users\UPC\Documents\SO\V7.6\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Form3.resources
+C:\Users\UPC\Documents\SO\V7.6\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Form4.resources
+C:\Users\UPC\Documents\SO\V7.6\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Properties.Resources.resources
+C:\Users\UPC\Documents\SO\V7.6\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.GenerateResource.cache
+C:\Users\UPC\Documents\SO\V7.6\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.CoreCompileInputs.cache
+C:\Users\UPC\Documents\SO\V7.6\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.exe
+C:\Users\UPC\Documents\SO\V7.6\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.pdb
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V7.7\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.exe.config
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V7.7\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.exe
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V7.7\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.pdb
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V7.7\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.AssemblyReference.cache
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V7.7\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.SuggestedBindingRedirects.cache
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V7.7\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Form1.resources
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V7.7\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Properties.Resources.resources
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V7.7\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.GenerateResource.cache
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V7.7\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.CoreCompileInputs.cache
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V7.7\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.exe
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V7.7\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.pdb
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V7.7\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.TicTacToe.resources
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V7.7\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Pictionary.resources
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V7.7\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.LaOca.resources
+C:\Users\Pau\Desktop\V7.8\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.exe.config
+C:\Users\Pau\Desktop\V7.8\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.exe
+C:\Users\Pau\Desktop\V7.8\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.pdb
+C:\Users\Pau\Desktop\V7.8\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.AssemblyReference.cache
+C:\Users\Pau\Desktop\V7.8\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Form1.resources
+C:\Users\Pau\Desktop\V7.8\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.TicTacToe.resources
+C:\Users\Pau\Desktop\V7.8\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Pictionary.resources
+C:\Users\Pau\Desktop\V7.8\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.LaOca.resources
+C:\Users\Pau\Desktop\V7.8\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Properties.Resources.resources
+C:\Users\Pau\Desktop\V7.8\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.GenerateResource.cache
+C:\Users\Pau\Desktop\V7.8\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.CoreCompileInputs.cache
+C:\Users\Pau\Desktop\V7.8\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.exe
+C:\Users\Pau\Desktop\V7.8\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.pdb
+C:\Users\UPC\Documents\SO\V7.9\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.exe.config
+C:\Users\UPC\Documents\SO\V7.9\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.exe
+C:\Users\UPC\Documents\SO\V7.9\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.pdb
+C:\Users\UPC\Documents\SO\V7.9\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.AssemblyReference.cache
+C:\Users\UPC\Documents\SO\V7.9\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Form1.resources
+C:\Users\UPC\Documents\SO\V7.9\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.TicTacToe.resources
+C:\Users\UPC\Documents\SO\V7.9\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Pictionary.resources
+C:\Users\UPC\Documents\SO\V7.9\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.LaOca.resources
+C:\Users\UPC\Documents\SO\V7.9\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Properties.Resources.resources
+C:\Users\UPC\Documents\SO\V7.9\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.GenerateResource.cache
+C:\Users\UPC\Documents\SO\V7.9\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.CoreCompileInputs.cache
+C:\Users\UPC\Documents\SO\V7.9\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.exe
+C:\Users\UPC\Documents\SO\V7.9\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.pdb
+C:\Users\Pau\Desktop\V7.9\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.exe.config
+C:\Users\Pau\Desktop\V7.9\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.exe
+C:\Users\Pau\Desktop\V7.9\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.pdb
+C:\Users\Pau\Desktop\V7.9\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.AssemblyReference.cache
+C:\Users\Pau\Desktop\V7.9\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Form1.resources
+C:\Users\Pau\Desktop\V7.9\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.TicTacToe.resources
+C:\Users\Pau\Desktop\V7.9\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Pictionary.resources
+C:\Users\Pau\Desktop\V7.9\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.LaOca.resources
+C:\Users\Pau\Desktop\V7.9\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Properties.Resources.resources
+C:\Users\Pau\Desktop\V7.9\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.GenerateResource.cache
+C:\Users\Pau\Desktop\V7.9\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.CoreCompileInputs.cache
+C:\Users\Pau\Desktop\V7.9\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.exe
+C:\Users\Pau\Desktop\V7.9\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.pdb
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V8\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.exe.config
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V8\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.exe
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V8\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.pdb
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V8\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.AssemblyReference.cache
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V8\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.SuggestedBindingRedirects.cache
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V8\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Form1.resources
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V8\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.TicTacToe.resources
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V8\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Pictionary.resources
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V8\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.LaOca.resources
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V8\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Properties.Resources.resources
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V8\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.GenerateResource.cache
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V8\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.CoreCompileInputs.cache
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V8\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.exe
+C:\Users\Gerard\OneDrive - Universitat Politècnica de Catalunya\Desktop\SO\SOProject\V8\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.pdb
+C:\Users\UPC\Documents\SO\V8.1\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.AssemblyReference.cache
+C:\Users\UPC\Documents\SO\V8.1\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.exe
+C:\Users\UPC\Documents\SO\V8.1\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.pdb
+C:\Users\UPC\Documents\SO\V8.1\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.exe.config
+C:\Users\UPC\Documents\SO\V8.1\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.exe
+C:\Users\UPC\Documents\SO\V8.1\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.pdb
+C:\Users\UPC\Documents\SO\V8.1\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Form1.resources
+C:\Users\UPC\Documents\SO\V8.1\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.TicTacToe.resources
+C:\Users\UPC\Documents\SO\V8.1\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Pictionary.resources
+C:\Users\UPC\Documents\SO\V8.1\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.LaOca.resources
+C:\Users\UPC\Documents\SO\V8.1\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Properties.Resources.resources
+C:\Users\UPC\Documents\SO\V8.1\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.GenerateResource.cache
+C:\Users\UPC\Documents\SO\V8.1\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.CoreCompileInputs.cache
+C:\Users\Pau\Desktop\Vfinal\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.AssemblyReference.cache
+C:\Users\Pau\Desktop\Vfinal\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.exe
+C:\Users\Pau\Desktop\Vfinal\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.pdb
+C:\Users\Pau\Desktop\Vfinal\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.exe.config
+C:\Users\Pau\Desktop\Vfinal\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.exe
+C:\Users\Pau\Desktop\Vfinal\clienteJuegoSO\clienteJuegoSO\bin\Debug\clienteJuegoSO.pdb
+C:\Users\Pau\Desktop\Vfinal\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Form1.resources
+C:\Users\Pau\Desktop\Vfinal\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.TicTacToe.resources
+C:\Users\Pau\Desktop\Vfinal\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Pictionary.resources
+C:\Users\Pau\Desktop\Vfinal\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.LaOca.resources
+C:\Users\Pau\Desktop\Vfinal\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.Properties.Resources.resources
+C:\Users\Pau\Desktop\Vfinal\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.GenerateResource.cache
+C:\Users\Pau\Desktop\Vfinal\clienteJuegoSO\clienteJuegoSO\obj\Debug\clienteJuegoSO.csproj.CoreCompileInputs.cache
